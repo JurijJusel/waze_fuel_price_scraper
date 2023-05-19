@@ -1,10 +1,12 @@
-## glassdoor.com crawler app
+## www.glassdoor.com crawler app
 
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 
-- [General Info](#general-information)
+- [www.glassdoor.com crawler app](#wwwglassdoorcom-crawler-app)
+- [Table of Contents](#table-of-contents)
+- [General Information](#general-information)
 - [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Screenshots](#screenshots)
@@ -18,31 +20,23 @@
 
 ## General Information
 
-- Scaning website is glassdoor.com
-- A crawler is a software robot that scans and downloads all posts from all pages from website and save data.
-- Saved data output file is data.csv
-
-- This app collects this points:
-- 'extract_time',
-- 'total_posts',
-- 'created_date',
-- 'posts': 'post_id', 'post_url', 'imag_url', 'position', 'company', 'city', 'salary', 'post_date', 'upload_post', 'applicants_value', 'post_description
+- Scraping company info United States
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 ## Technologies Used
 
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- Python 3.x.x
+- BeautifulSoup
+- PostgreSQL
+- Async technics
+- Docker
 
 ## Features
 
 List the ready features here:
 
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Queries get company information and jobs offers
 
 ## Screenshots
 
@@ -74,20 +68,16 @@ Include areas you believe need improvement / could be improved. Also add TODOs f
 Room for improvement:
 
 - Improvement to be done 1
-- Improvement to be done 2
 
 To do:
 
 - Feature to be added 1
-- Feature to be added 2
 
 ## Acknowledgements
 
 Give credit here.
 
 - This project was inspired by...
-- This project was based on
-- Many thanks to...
 
 ## Contact
 
