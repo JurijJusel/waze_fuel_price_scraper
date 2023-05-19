@@ -1,13 +1,12 @@
-
-.env
-gd_env
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Ignore everything in data directory
+# Ignore files
+.DS_Store
+
+# Ignore everything in directores
 data/
 
 # Ignore everything in .vscode directory
@@ -113,6 +112,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+gd_env
 .env
 .venv
 env/
