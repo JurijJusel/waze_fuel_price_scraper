@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ## glassdoor.com crawler app
+=======
+## www.glassdoor.com crawler app
+>>>>>>> 8900372ecece8bd07bb4b557ac1966b9b27c5162
 
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
@@ -18,6 +22,7 @@
 
 ## General Information
 
+<<<<<<< HEAD
 - Scaning website is glassdoor.com
 - A crawler is a software robot that scans and downloads all posts from all pages from website and save data.
 - Saved data output file is data.csv
@@ -27,6 +32,9 @@
 - 'total_posts',
 - 'created_date',
 - 'posts': 'post_id', 'post_url', 'imag_url', 'position', 'company', 'city', 'salary', 'post_date', 'upload_post', 'applicants_value', 'post_description
+=======
+- Scraping company info United States
+>>>>>>> 8900372ecece8bd07bb4b557ac1966b9b27c5162
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 

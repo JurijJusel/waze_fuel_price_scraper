@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+
+.env
+gd_env
+data/
+
+>>>>>>> 8900372ecece8bd07bb4b557ac1966b9b27c5162
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
