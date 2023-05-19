@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Ignore everything in data directory
+# Ignore everything in directores
 data/
 
 # Ignore everything in .vscode directory
