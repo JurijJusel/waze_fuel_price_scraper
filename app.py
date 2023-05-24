@@ -1,23 +1,43 @@
 from bs4 import BeautifulSoup
-# import requests
+import requests
 from utils.file import create_json
-from urllib.request import Request, urlopen
+# from urllib.request import Request, urlopen
 import httpx
 from parsel import Selector
+import urllib3
 
-# url = 'https://www.glassdoor.com/member/home/index.htm'
+url = 'https://www.glassdoor.com/member/home/index.htm'
 # headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36'}
+# headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.5672.126 Safari/537.36'}
 
-response = httpx.get(
-    'https://www.glassdoor.com/Reviews/index.htm?overall_rating_low=3.5&page=1&filterType=RATING_OVERALL',
-    follow_redirects=True
-)
 
-selector = Selector(response.text).get()
+
+# http = urllib3.PoolManager()
+# resp = http.request('GET', url)
+# print(resp.status)
+# print(resp.data)
+
+
+
+req = requests.get(url, headers=headers).text
+# selector = Selector(text=req)
+# print(selector.xpath('//title/text()').getall())
+print(req)
+
+
+
+# response = httpx.get( url, follow_redirects=True)
+
+# selector = Selector(response.text).get()
 # meta_tags = selector.get()
-print(selector)
-    
-
+# print(selector)
+# html_selector = Selector(text=selector)
+# g = html_selector.xpath('//head/text()').get()
+# print(g)
+# h = selector.css('meta')
+# for i in h:
+#     print(i)
 # req = Request(url=url, headers=headers)
 # webpage = urlopen(req).read()
 # print(webpage)
@@ -25,10 +45,11 @@ print(selector)
 # # def download_meta():
 # meta_data=[]
 # # req = requests.get(url, headers=headers)
-# # soup = BeautifulSoup(req.content, features="lxml")
+# soup = BeautifulSoup(req, features="lxml")
+
 # soup = BeautifulSoup(selector, 'html.parser')
 # meta_tags = soup.find_all('meta')
-#     # print(meta_tags)
+# print(meta_tags)
 #     # meta_data.append(meta_tags)
 # for tag in meta_tags: 
 #     meta_data.append(tag)
