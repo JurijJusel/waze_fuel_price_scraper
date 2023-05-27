@@ -1,69 +1,48 @@
-# from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 import requests
-# from utils.file import create_json
-# from urllib.request import Request, urlopen
-# import httpx
-# from parsel import Selector
-# import urllib3
-# from fake_useragent import UserAgent
+import time
+from urls import urls
+from utils.file import create_json
+
+time_now = time.strftime("%Y-%m-%d %H:%M:%S")
+
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36'}
+
+req = requests.get(urls[1], headers=headers).text
+soup = BeautifulSoup(req, features="lxml")
+
+title = soup.title.string[-8::]
+cards = soup.find_all('div', {'class': 'atom-card'})
+updated_fuel_info = cards[0].text[139:160]
+miles_95 = cards[0].text[43:48]
+miles_plus_95 = cards[1].text[43:48]
+miles_plus_98 = cards[2].text[43:48]
+miles_D = cards[3].text[43:48]
+miles_D_plus = cards[4].text[43:48]
+dz = cards[5].text[43:48]
+lpg = cards[6].text[43:48]
+ad_blue = cards[7].text[43:48]
 
 
-url = 'https://www.glassdoor.com/member/home/index.htm'
-# headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36'}
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
-# headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.83 Safari/537.36'}
-# headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.13 (KHTML, like Gecko) Chrome/24.0.1290.1 Safari/537.13'}
+circlek_data = {'scrap_time': time_now,
+        'website': title,
+        'updated_fuel_info': updated_fuel_info, 
+        'fuel_price': {
+            'miles_95': miles_95, 
+            'miles_plus_95': miles_plus_95,
+            'miles_plus_98': miles_plus_98,
+            'miles_D': miles_D,
+            'miles_D_plus': miles_D_plus,
+            'DZ': dz,
+            'lpg': lpg,
+            'ad_blue': ad_blue
+            }
+        }
 
+print(circlek_data)
 
-# http = urllib3.PoolManager()
-# resp = http.request('GET', url)
-# print(resp.status)
-# print(resp.data)
-# ua = UserAgent()
-# print(ua.chrome)
+# print(create_json(circlek_data, 'fuel.json'))
 
-
-req = requests.get(url, headers=headers)
-# selector = Selector(text=req)
-# print(selector.xpath('//title/text()').getall())
-print(req.status_code)
-
-
-# req = Request(url, headers=headers)
-# print(req)
-# web = urlopen(req).read()
-# response = httpx.get(url)  #, follow_redirects=True)
-# print(response.status_code)
-# selector = Selector(response.text)
-# meta_tags = selector.get()
-# print(selector)
-# html_selector = Selector(text=selector)
-# g = html_selector.xpath('//head/text()').get()
-# print(g)
-# h = selector.css('meta')
-# for i in h:
-#     print(i)
-# req = Request(url=url, headers=headers)
-# webpage = urlopen(req).read()
-# print(webpage)
-
-# # def download_meta():
-# meta_data=[]
-# # req = requests.get(url, headers=headers)
-# soup = BeautifulSoup(req, features="lxml")
-
-# soup = BeautifulSoup(selector, 'html.parser')
-# meta_tags = soup.find_all('meta')
-# print(meta_tags)
-#     # meta_data.append(meta_tags)
-# for tag in meta_tags: 
-#     meta_data.append(tag)
-#     print(meta_data) 
-# print(req)
-# print(meta_data)
-
-# print(create_json(meta_data, 'meta.json'))
-    # print(meta_data)
 
 
 
