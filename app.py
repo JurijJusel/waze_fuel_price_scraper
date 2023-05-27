@@ -1,35 +1,40 @@
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 import requests
-from utils.file import create_json
+# from utils.file import create_json
 # from urllib.request import Request, urlopen
-import httpx
-from parsel import Selector
-import urllib3
+# import httpx
+# from parsel import Selector
+# import urllib3
+# from fake_useragent import UserAgent
+
 
 url = 'https://www.glassdoor.com/member/home/index.htm'
 # headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36'}
-# headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.5672.126 Safari/537.36'}
-
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+# headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.83 Safari/537.36'}
+# headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_4) AppleWebKit/537.13 (KHTML, like Gecko) Chrome/24.0.1290.1 Safari/537.13'}
 
 
 # http = urllib3.PoolManager()
 # resp = http.request('GET', url)
 # print(resp.status)
 # print(resp.data)
+# ua = UserAgent()
+# print(ua.chrome)
 
 
-
-req = requests.get(url, headers=headers).text
+req = requests.get(url, headers=headers)
 # selector = Selector(text=req)
 # print(selector.xpath('//title/text()').getall())
-print(req)
+print(req.status_code)
 
 
-
-# response = httpx.get( url, follow_redirects=True)
-
-# selector = Selector(response.text).get()
+# req = Request(url, headers=headers)
+# print(req)
+# web = urlopen(req).read()
+# response = httpx.get(url)  #, follow_redirects=True)
+# print(response.status_code)
+# selector = Selector(response.text)
 # meta_tags = selector.get()
 # print(selector)
 # html_selector = Selector(text=selector)
