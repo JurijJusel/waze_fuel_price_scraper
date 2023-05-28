@@ -1,6 +1,6 @@
 {
-  "scrap_time": "2023-05-27 19:51:17",
-  "website": "Circle K",
+  "company": "Circle K",
+  "scrap_time": "2023-05-27 20:18:35",
   "updated_fuel_info": "Gegu\u017e\u0117s 26d. 13:00:00",
   "fuel_price": {
     "miles_95": "1,464",
@@ -14,10 +14,25 @@
   }
 }
 {
-  "scrap_time": "2023-05-27 19:51:55",
-  "website": "Circle K",
+  "company": "Circle K",
+  "scrap_time": "2023-05-28 23:19:09",
   "updated_fuel_info": "Gegu\u017e\u0117s 26d. 13:00:00",
-  "fuel_price": {
+  "fuel_prices": {
+    "miles_95": "1,464",
+    "miles_plus_95": "1,558",
+    "miles_plus_98": "1,568",
+    "miles_D": "1,294",
+    "miles_D_plus": "1,388",
+    "DZ": "0,919",
+    "lpg": "0,543",
+    "ad_blue": "0,840"
+  }
+}
+{
+  "company": "Circle K",
+  "scrap_time": "2023-05-28 23:19:40",
+  "updated_fuel_info": "Gegu\u017e\u0117s 26d. 13:00:00",
+  "fuel_prices": {
     "miles_95": "1,464",
     "miles_plus_95": "1,558",
     "miles_plus_98": "1,568",
