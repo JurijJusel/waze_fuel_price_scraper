@@ -15,31 +15,31 @@
 }
 {
   "company": "Circle K",
-  "scrap_time": "2023-05-28 23:19:09",
-  "updated_fuel_info": "Gegu\u017e\u0117s 26d. 13:00:00",
+  "scrap_time": "2023-05-29 22:38:09",
+  "updated_fuel_info": "Gegu\u017e\u0117s 29d. 12:00:00",
   "fuel_prices": {
     "miles_95": "1,464",
     "miles_plus_95": "1,558",
     "miles_plus_98": "1,568",
-    "miles_D": "1,294",
+    "miles_D": "1,289",
     "miles_D_plus": "1,388",
     "DZ": "0,919",
-    "lpg": "0,543",
+    "lpg": "0,573",
     "ad_blue": "0,840"
   }
 }
 {
   "company": "Circle K",
-  "scrap_time": "2023-05-28 23:19:40",
-  "updated_fuel_info": "Gegu\u017e\u0117s 26d. 13:00:00",
+  "scrap_time": "2023-05-30 22:54:38",
+  "updated_fuel_info": "Gegu\u017e\u0117s 30d. 11:00:00",
   "fuel_prices": {
     "miles_95": "1,464",
     "miles_plus_95": "1,558",
     "miles_plus_98": "1,568",
-    "miles_D": "1,294",
-    "miles_D_plus": "1,388",
+    "miles_D": "1,269",
+    "miles_D_plus": "1,358",
     "DZ": "0,919",
-    "lpg": "0,543",
+    "lpg": "0,573",
     "ad_blue": "0,840"
   }
 }
