@@ -6,10 +6,10 @@ from constants import headers, fuel_types
 from get_company_url import get_url_by_name
 
 class FuelCrawler:
-    def __init__(self, url, headers):
+    def __init__(self, url):
         self.url = url
         self.headers = headers
-        
+        self.json_file = 'fuel.json'
 
     def download_response(self):
         req = requests.get(self.url, self.headers).text
@@ -56,14 +56,16 @@ class FuelCrawler:
        
     def print_data(self):
         self.get_prices()
+        create_json(self.circlek_data, self.json_file )
         updated_fuel_info = self.circlek_data['updated_fuel_info']
         company = self.circlek_data['company']
         for fuel_type in fuel_types:
             fuel_value = self.circlek_data[fuel_type]
             print(f"{updated_fuel_info}:  {company}  {fuel_type} - {fuel_value}")
       
-
+    
 if __name__ == '__main__':
-    station = FuelCrawler(get_url_by_name('Circle'), headers)
+    station = FuelCrawler(get_url_by_name('Circle'))
     station.print_data()
+   
 
