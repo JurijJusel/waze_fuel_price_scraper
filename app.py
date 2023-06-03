@@ -3,16 +3,17 @@ import requests
 import time
 from urls import urls
 from utils.file import create_json
-
+from constants import headers, fuel_types
+from get_company_url import get_url_by_name
 
 class FuelCrawler:
-    def __init__(self, url):
+    def __init__(self, url, headers):
         self.url = url
-        self.headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36'}
-
+        self.headers = headers
+        
 
     def download_response(self):
-        req = requests.get(self.url, headers=self.headers).text
+        req = requests.get(self.url, self.headers).text
         soup = BeautifulSoup(req, features="lxml")
         return soup
 
@@ -21,45 +22,49 @@ class FuelCrawler:
         title = soup.title.string[-8::]
         cards = soup.find_all('div', {'class': 'atom-card'})
         updated_fuel_info = cards[0].text[139:160]
-        miles_95 = cards[0].text[43:48]
-        miles_plus_95 = cards[1].text[43:48]
-        miles_plus_98 = cards[2].text[43:48]
-        miles_D = cards[3].text[43:48]
-        miles_D_plus = cards[4].text[43:48]
-        dz = cards[5].text[43:48]
-        lpg = cards[6].text[43:48]
-        ad_blue = cards[7].text[43:48]
+        price_miles_95 = cards[0].text[43:48]
+        price_miles_plus_95 = cards[1].text[43:48]
+        price_miles_plus_98 = cards[2].text[43:48]
+        price_miles_D = cards[3].text[43:48]
+        price_miles_D_plus = cards[4].text[43:48]
+        price_dz = cards[5].text[43:48]
+        price_lpg = cards[6].text[43:48]
+        price_ad_blue = cards[7].text[43:48]
 
         time_now = time.strftime("%Y-%m-%d %H:%M:%S")
         
-        circlek_data = {
+        self.circlek_data = {
             'company': title,
             'scrap_time': time_now,
             'updated_fuel_info': updated_fuel_info, 
-            'fuel_prices': {
-                'miles_95': miles_95, 
-                'miles_plus_95': miles_plus_95,
-                'miles_plus_98': miles_plus_98,
-                'miles_D': miles_D,
-                'miles_D_plus': miles_D_plus,
-                'DZ': dz,
-                'lpg': lpg,
-                'ad_blue': ad_blue
-                }
+            'miles_95': price_miles_95, 
+            'miles_plus_95': price_miles_plus_95,
+            'miles_plus_98': price_miles_plus_98,
+            'miles_D': price_miles_D,
+            'miles_D_plus': price_miles_D_plus,
+            'DZ': price_dz,
+            'lpg': price_lpg,
+            'ad_blue': price_ad_blue
             }
-        return circlek_data
+        
+        return self.circlek_data
 
 
     def get_prices(self):
         soup_response = self.download_response()
         return self.circlek_prices(soup_response)
-    
+        
+       
+    def print_data(self):
+        self.get_prices()
+        updated_fuel_info = self.circlek_data['updated_fuel_info']
+        company = self.circlek_data['company']
+        for fuel_type in fuel_types:
+            fuel_value = self.circlek_data[fuel_type]
+            print(f"{updated_fuel_info}:  {company}  {fuel_type} - {fuel_value}")
+      
 
 if __name__ == '__main__':
-    station = FuelCrawler(urls[1]['url'])
-    print(station.get_prices())
-    # print(prices)
-    # data_to_json = circlek_prices(download_response(urls[1]['url']))
-    # print(create_json(data_to_json, 'fuel.json'))
-    # print(circlek_prices(download_response(urls[1]['url'])))
-    # print(get_prices(urls[1]['url']))
+    station = FuelCrawler(get_url_by_name('Circle'), headers)
+    station.print_data()
+
