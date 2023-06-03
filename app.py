@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 import time
-from urls import urls
 from utils.file import create_json
 from constants import headers, fuel_types
 from get_company_url import get_url_by_name
