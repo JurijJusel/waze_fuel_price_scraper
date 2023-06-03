@@ -9,12 +9,17 @@ class FuelCrawler:
     def __init__(self, url):
         self.url = url
         self.headers = headers
-        self.json_file = 'fuel.json'
+        self.json_file = 'fuel1.json'
+
 
     def download_response(self):
-        req = requests.get(self.url, self.headers).text
-        soup = BeautifulSoup(req, features="lxml")
-        return soup
+        req = requests.get(self.url, self.headers )
+        if req.status_code == 200:
+            soup = BeautifulSoup(req.text, features="lxml")
+            return soup
+        else:
+            print("Error info:", req.status_code, self.url)
+            raise Exception("Failed to download response")
 
 
     def circlek_prices(self, soup):
@@ -45,13 +50,16 @@ class FuelCrawler:
             'lpg': price_lpg,
             'ad_blue': price_ad_blue
             }
-        
+               
         return self.circlek_data
 
 
     def get_prices(self):
-        soup_response = self.download_response()
-        return self.circlek_prices(soup_response)
+        try:
+            soup_response = self.download_response()
+            return self.circlek_prices(soup_response)
+        except Exception as e:
+            print("Error exception info:", str(e))
         
        
     def print_data(self):
