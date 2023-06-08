@@ -5,7 +5,11 @@ __pycache__/
 
 # Ignore files
 .DS_Store
+**/.DS_Store
 
+# Ignore folders
+data/
+.data/
 
 # Ignore everything in .vscode directory
 app/.vscode/
