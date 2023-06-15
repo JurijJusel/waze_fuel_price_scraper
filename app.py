@@ -41,14 +41,17 @@ class FuelCrawler:
             price_D = table_row.find_all('td')[1].get_text(strip=True)
             name_A95 = table_row.find_all('td')[2].get("data-id")[-2::]   
             price_A95 = table_row.find_all('td')[2].get_text(strip=True) 
-
+            
             station = Station(company, adress, fuel_updated_date, name_D, price_D, name_A95, price_A95)
-            self.posts.append(station.data) 
+            
+            data = station.data_to_dict()
            
+            self.posts.append(data)
+            
         return self.posts
     
-       
-    def get_responce(self):
+
+    def try_get_responce(self):
         try:
             soup_response = self.download_response()
             return self.get_data(soup_response)
@@ -57,7 +60,7 @@ class FuelCrawler:
         
       
     def data_to_json(self):
-        self.get_responce()
+        self.try_get_responce()
         create_json(self.posts, self.json_file )
     
             
