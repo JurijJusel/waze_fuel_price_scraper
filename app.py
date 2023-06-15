@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
 import requests
-import time
 from utils.file import create_json
-from constants import headers, fuel_types_circle
+from constants import headers
 from urls import urls
+from station import Station
 
 
 class FuelCrawler:
@@ -11,7 +11,8 @@ class FuelCrawler:
         self.name = name
         self.url = self.get_url_by_name()
         self.headers = headers
-        self.json_file = 'fuel1.json'
+        self.json_file = 'fuel.json'
+        self.posts = []
 
     
     def get_url_by_name(self):
@@ -22,55 +23,48 @@ class FuelCrawler:
     def download_response(self):
         req = requests.get(self.url, self.headers )
         if req.status_code == 200:
-            soup = BeautifulSoup(req.text, features="lxml")
+            soup = BeautifulSoup(req.content, features="lxml")
             return soup
         else:
             print("Error info:", req.status_code, self.url)
             raise Exception("Failed to download response")
 
-
-    def circlek_prices(self, soup):
-        title = soup.title.string[-8::]
-        cards = soup.find_all('div', {'class': 'atom-card'})
-        updated_fuel_info = cards[0].text[-26:-5]
-        price_miles_95 = cards[0].text[43:48]
-        price_miles_plus_95 = cards[1].text[43:48]
-        price_miles_D = cards[3].text[43:48]
-        price_miles_D_plus = cards[4].text[43:48]
-
-        time_now = time.strftime("%Y-%m-%d %H:%M:%S")
         
-        self.circlek_data = {
-            'company': title,
-            'scrap_time': time_now,
-            'updated_fuel_info': updated_fuel_info, 
-            'miles_95': price_miles_95, 
-            'miles_plus_95': price_miles_plus_95,
-            'miles_D': price_miles_D,
-            'miles_D_plus': price_miles_D_plus,
-            }      
-        return self.circlek_data
+    def get_data(self, soup):
+        table_rows = soup.find_all('tr')
+        for index in range(1, len(table_rows)):
+            table_row = table_rows[index]
+            fuel_updated_date = soup.find('p', class_='last-updated').text[-19::]
+            company = table_row.find('td').text[2:27].rstrip()
+            adress = table_row.find('small').text  
+            name_D = table_row.find_all('td')[1].get("data-id")[-6::] 
+            price_D = table_row.find_all('td')[1].get_text(strip=True)
+            name_A95 = table_row.find_all('td')[2].get("data-id")[-2::]   
+            price_A95 = table_row.find_all('td')[2].get_text(strip=True) 
+            
+            station = Station(company, adress, fuel_updated_date, name_D, price_D, name_A95, price_A95)
+            
+            data = station.data_to_dict()
+           
+            self.posts.append(data)
+            
+        return self.posts
+    
 
-
-    def get_prices(self):
+    def try_get_responce(self):
         try:
             soup_response = self.download_response()
-            return self.circlek_prices(soup_response)
+            return self.get_data(soup_response)
         except Exception as e:
             print("Error exception info:", str(e))
         
-       
-    def print_data(self):
-        self.get_prices()
-        create_json(self.circlek_data, self.json_file )
-        updated_fuel_info = self.circlek_data['updated_fuel_info']
-        company = self.circlek_data['company']
-        for fuel_type in fuel_types_circle:
-            fuel_value = self.circlek_data[fuel_type]
-            print(f"{updated_fuel_info}:  {company}  {fuel_type} - {fuel_value}")
       
+    def data_to_json(self):
+        self.try_get_responce()
+        create_json(self.posts, self.json_file )
     
+            
 if __name__ == '__main__':
     station = FuelCrawler('Circle')
-    station.print_data()
+    station.data_to_json()
    

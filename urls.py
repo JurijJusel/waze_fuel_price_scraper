@@ -1,6 +1,6 @@
 urls = [
     {'name': 'Orlen Lietuva', 'url': 'https://pricer.lt/tyrimai/kuras/orlen-lietuva'},
-    {'name': 'Circle', 'url': 'https://www.circlek.lt/privatiems/degalu-kainos'},
+    {'name': 'Circle', 'url': "https://gas.didnt.work/?country=lt&brand=Circle+K&city=Vilnius"},
     {'name': 'Viada', 'url': 'https://gasprices.dna.lv/lt/brand/viada'},
     {'name': 'Neste', 'url': 'https://www.kuro-kainos.lt/degalu-kainos/neste'},
     {'name': 'Baltic Petroleum', 'url': 'https://gasprices.dna.lv/lt/brand/baltic-petroleum'},
