@@ -14,4 +14,14 @@ def create_json(data, json_file):
             json.dump(data, file, indent=2)
             file.write('\n')
             return f'created <{json_file}> file and data written to it'
+
+
+def write_to_txt_file(text, txt_file):
+    try:
+        with open(txt_file, 'w') as file:
+            file.write(text)
+        print(f'Successfully wrote the string to {txt_file}.')
+    except IOError:
+        print(f'Error: Could not write to {txt_file}.')
+
         
