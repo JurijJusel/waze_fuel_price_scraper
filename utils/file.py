@@ -18,10 +18,10 @@ def create_json(data, json_file):
 
 def write_to_txt_file(text, txt_file):
     try:
-        with open(txt_file, 'w') as file:
-            file.write(text)
-        print(f'Successfully wrote the string to {txt_file}.')
+        with open(txt_file, 'a') as file:
+            file.write(text + "\n")
+        print(f"Successfully wrote the string to <{txt_file}>.")
     except IOError:
-        print(f'Error: Could not write to {txt_file}.')
+        print(f"Error: Failed not write to <{txt_file}>.")
 
         
