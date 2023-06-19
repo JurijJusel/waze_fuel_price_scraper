@@ -1,9 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
-from utils.file import create_json
+from utils.file import create_json, write_to_txt_file
 from constants import headers
 from urls import urls
 from station import Station
+from logs import Logger
 
 
 class FuelCrawler:
@@ -13,22 +14,23 @@ class FuelCrawler:
         self.headers = headers
         self.json_file = 'fuel.json'
         self.posts = []
+        self.status_code = None
+        self.company = None
 
-    
     def get_url_by_name(self):
         selected_url = next(item['url'] for item in urls if item['name'] == self.name)
         return selected_url
     
-
+    
     def download_response(self):
         req = requests.get(self.url, self.headers )
+        self.status_code = req.status_code
         if req.status_code == 200:
             soup = BeautifulSoup(req.content, features="lxml")
             return soup
         else:
-            print("Error info:", req.status_code, self.url)
             raise Exception("Failed to download response")
-
+       
         
     def get_data(self, soup):
         table_rows = soup.find_all('tr')
@@ -36,6 +38,7 @@ class FuelCrawler:
             table_row = table_rows[index]
             fuel_updated_date = soup.find('p', class_='last-updated').text[-19::]
             company = table_row.find('td').text[2:27].rstrip()
+            self.company = company
             adress = table_row.find('small').text  
             name_D = table_row.find_all('td')[1].get("data-id")[-6::] 
             price_D = table_row.find_all('td')[1].get_text(strip=True)
@@ -44,13 +47,14 @@ class FuelCrawler:
             
             station = Station(company, adress, fuel_updated_date, name_D, price_D, name_A95, price_A95)
             
+            
             data = station.data_to_dict()
            
             self.posts.append(data)
             
         return self.posts
+ 
     
-
     def try_get_responce(self):
         try:
             soup_response = self.download_response()
@@ -67,4 +71,7 @@ class FuelCrawler:
 if __name__ == '__main__':
     station = FuelCrawler('Circle')
     station.data_to_json()
-   
+    logger = Logger(status=station.status_code, name=station.name, url=station.url)  
+    logger.write_logs_to_txt(logger.data_to_log(), "logs.txt")
+    logger = Logger(status=station.status_code, name=station.company, url=station.url)
+    logger.write_logs_to_txt(logger.data_to_log(), "logs.txt")
