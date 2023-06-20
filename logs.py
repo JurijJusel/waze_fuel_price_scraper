@@ -17,24 +17,8 @@ class Logger:
             with open(txt_file, 'a') as file:
                 file.write(text + "\n")
             print(f"Successfully wrote logs to <{txt_file}>.")
-        except IOError:
+        except IOError as ioe:
+            print(ioe)
             print(f"Error: Failed write logs to <{txt_file}>.")
-
-
-
-
-    # def __str__(self):
-    #     return f"{self.timestamp}, {self.status}, {self.name}, {self.url}"
-
-
-# log = Logger("1", "2", "6", "4")
-# print(log)
-# a_to_txt = log.data_to_txt()
-
-# print("id:", log.id)
-# print(log.name)
-# print(log.url)
-# print(log.status)
-# print(log.timestamp)
-
-# write_to_txt_file(a_to_txt, 'logs.txt')
+            
+            
