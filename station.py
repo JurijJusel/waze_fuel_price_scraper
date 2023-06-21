@@ -14,7 +14,7 @@ class Station:
         return {
             'company': self.company,
             'adress': self.adress,
-            'fue l_updated_date': self.fuel_updated_date,
+            'fuel_updated_date': self.fuel_updated_date,
             self.name_D: self.price_D,
             self.name_A95: self.price_A95  
             }
