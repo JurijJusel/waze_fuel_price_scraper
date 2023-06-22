@@ -28,3 +28,4 @@
 2023-06-19 21:02:42, 200, Circle K Šalia Parlamento, https://gas.didnt.work/?country=lt&brand=Circle+K&city=Vilnius
 2023-06-19 21:03:00, 200, Circle, https://gas.didnt.work/?country=lt&brand=Circle+K&city=Vilnius
 2023-06-19 21:03:00, 200, Circle K Šalia Parlamento, https://gas.didnt.work/?country=lt&brand=Circle+K&city=Vilnius
+2023-06-22 19:29:45, Circle, 200, https://gas.didnt.work/?country=lt&brand=Circle+K&city=Vilnius, diesel 1.399,Kareivių g. 13, Vilnius

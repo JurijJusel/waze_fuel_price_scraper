@@ -18,7 +18,6 @@ class Logger:
                 file.write(text + "\n")
             print(f"Successfully wrote logs to <{txt_file}>.")
         except IOError as ioe:
-            print(ioe)
-            print(f"Error: Failed write logs to <{txt_file}>.")
+            print(f"Error: {ioe}, Failed write logs to <{txt_file}>.")
             
             
