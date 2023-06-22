@@ -4,7 +4,7 @@ from utils.file import create_json
 from constants import headers
 from urls import urls
 from station import Station
-from logs1 import Logger
+from logs import Logger
 
 
 class FuelCrawler:
