@@ -39,8 +39,7 @@ class FuelCrawler:
         else:
             self.status = req.status_code
     
-    
- 
+      
     def get_data(self, soup):
         table_rows = soup.find_all('tr')
         for index in range(1, len(table_rows)): 
@@ -50,8 +49,8 @@ class FuelCrawler:
             except AttributeError as ae:
                 self.fuel_updated_date = None
             try: 
-                table_rows_split = table_row.text.split(' ')[1:5]
-                self.company = ' '.join(table_rows_split).rstrip()   
+                company_row_split = table_row.text.split(' ')[1:5]
+                self.company = ' '.join(company_row_split).rstrip()   
             except AttributeError as ae:
                 self.company = None
             try:   
@@ -94,13 +93,11 @@ class FuelCrawler:
             # print("Error get responce exception info:", rqe)
             self.resp_err = rqe
             
-        
-        
+               
     def data_to_json(self):
         self.try_get_responce()
         create_json(self.posts, self.json_file )
         
-    
             
 if __name__ == '__main__':
     station = FuelCrawler('Circle')
