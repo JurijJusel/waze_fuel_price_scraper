@@ -270,3 +270,191 @@ None
 2023-06-29 21:59:52, status code: 200, Circle
 2023-06-29 21:59:52, status code: 200, Circle, error get price_D
 2023-06-29 22:00:17, status code: 200, Circle
+2023-06-29 22:57:07, Circle, error: None
+2023-06-30 22:18:01, Circle, error: None
+2023-06-30 22:18:18, Circle, error: None
+2023-06-30 22:18:42, status code: 200, Circle
+2023-06-30 22:18:42, status code: 200, Circle, error get fuel_updated_date
+2023-06-30 22:18:42, status code: 200, Circle, error get company
+2023-06-30 22:18:42, status code: 200, Circle, error get adress
+2023-06-30 22:18:42, status code: 200, Circle, error get name_D
+2023-06-30 22:18:42, status code: 200, Circle, error get price_D
+2023-06-30 22:18:42, status code: 200, Circle, error get name_A95
+2023-06-30 22:18:42, status code: 200, Circle, error get price_A95
+2023-06-30 22:20:11, status code: 200, Circle
+2023-06-30 22:20:11, status code: 200, Circle, error get fuel_updated_date
+2023-06-30 22:20:11, status code: 200, Circle, error get company
+2023-06-30 22:20:11, status code: 200, Circle, error get adress
+2023-06-30 22:20:11, status code: 200, Circle, error get name_D
+2023-06-30 22:20:11, status code: 200, Circle, error get price_D
+2023-06-30 22:20:11, status code: 200, Circle, error get name_A95
+2023-06-30 22:20:11, status code: 200, Circle, error get price_A95
+2023-06-30 22:20:52, status code: 200, Circle
+2023-06-30 22:21:45, status code: 200, Circle
+2023-06-30 22:24:08, status code: 200, Circle
+2023-06-30 22:24:29, status code: 200, Circle
+2023-06-30 22:26:21, status code: 200, Circle
+2023-06-30 22:28:32, status code: 200, Circle
+2023-06-30 22:34:30, status code: 200, Circle
+2023-06-30 22:35:13, status code: 200, Circle
+2023-06-30 22:35:13, status code: 200, Circle, error get fuel_updated_date
+2023-06-30 22:35:13, status code: 200, Circle, error get adress
+2023-06-30 22:35:59, status code: 200, Circle
+2023-06-30 22:35:59, status code: 200, Circle, error get name_A95
+2023-06-30 22:42:42, status code: 200, Circle
+2023-06-30 22:43:26, status code: 200, Circle
+2023-06-30 22:43:54, status code: 200, Circle
+2023-06-30 22:44:53, status code: 200, Circle
+2023-07-01 10:34:18, status code: 200, Circle
+2023-07-01 15:31:51, status code: 200, Circle
+2023-07-01 15:32:20, status code: 200, Circle
+2023-07-01 15:36:56, status code: 200, Circle
+2023-07-01 15:37:45, status code: 200, Circle
+2023-07-01 15:39:26, status code: 200, Circle
+2023-07-01 15:40:05, status code: 200, Circle
+2023-07-01 15:40:48, status code: 200, Circle
+2023-07-01 15:41:29, status code: 200, Circle
+2023-07-01 15:43:26, status code: 200, Circle
+2023-07-01 15:44:10, status code: 200, Circle
+2023-07-01 16:26:01, Circle, error: None
+2023-07-01 16:37:45, Circle, error: None
+2023-07-01 16:39:49, Circle, error: None
+2023-07-01 16:40:50, Circle, error: None
+2023-07-01 16:42:50, Circle, error: None
+2023-07-01 16:44:36, Circle, error: None
+2023-07-01 16:44:55, Circle, error: None
+2023-07-01 16:46:31, Circle, error: None
+2023-07-01 16:48:17, Circle, error: None
+2023-07-01 16:51:32, Circle, error: None
+2023-07-01 16:52:23, Circle, error: None
+2023-07-01 16:57:58, Circle, error: None
+2023-07-01 16:58:57, Circle, error: None
+2023-07-01 16:59:11, Circle, error: None
+2023-07-01 17:00:17, Circle, error: None
+2023-07-01 17:02:49, Circle, error: None
+2023-07-01 17:04:10, Circle, error: None
+2023-07-01 17:05:59, status code: 200, Circle
+2023-07-01 17:05:59, status code: 200, Circle, error get fuel_updated_date
+2023-07-01 17:05:59, status code: 200, Circle, error get company
+2023-07-01 17:05:59, status code: 200, Circle, error get adress
+2023-07-01 17:05:59, status code: 200, Circle, error get name_D
+2023-07-01 17:05:59, status code: 200, Circle, error get price_D
+2023-07-01 17:05:59, status code: 200, Circle, error get name_A95
+2023-07-01 17:05:59, status code: 200, Circle, error get price_A95
+2023-07-01 17:08:02, status code: 200, Circle
+2023-07-01 17:08:02, status code: 200, Circle, error get fuel_updated_date
+2023-07-01 17:08:02, status code: 200, Circle, error get company
+2023-07-01 17:08:02, status code: 200, Circle, error get adress
+2023-07-01 17:08:02, status code: 200, Circle, error get name_D
+2023-07-01 17:08:02, status code: 200, Circle, error get price_D
+2023-07-01 17:08:02, status code: 200, Circle, error get name_A95
+2023-07-01 17:08:02, status code: 200, Circle, error get price_A95
+2023-07-01 17:10:20, status code: 200, Circle
+2023-07-01 17:10:20, status code: 200, Circle, error get fuel_updated_date
+2023-07-01 17:10:20, status code: 200, Circle, error get company
+2023-07-01 17:10:20, status code: 200, Circle, error get adress
+2023-07-01 17:10:20, status code: 200, Circle, error get name_D
+2023-07-01 17:10:20, status code: 200, Circle, error get price_D
+2023-07-01 17:10:20, status code: 200, Circle, error get name_A95
+2023-07-01 17:10:20, status code: 200, Circle, error get price_A95
+2023-07-01 21:50:06, status code: 200, Circle
+2023-07-01 21:50:06, status code: 200, Circle, error get fuel_updated_date
+2023-07-01 21:50:06, status code: 200, Circle, error get company
+2023-07-01 21:50:06, status code: 200, Circle, error get adress
+2023-07-01 21:50:06, status code: 200, Circle, error get name_D
+2023-07-01 21:50:06, status code: 200, Circle, error get price_D
+2023-07-01 21:50:06, status code: 200, Circle, error get name_A95
+2023-07-01 21:50:06, status code: 200, Circle, error get price_A95
+2023-07-01 22:41:09, status code: 200, Circle
+2023-07-01 22:41:09, status code: 200, Circle, error get fuel_updated_date
+2023-07-01 22:41:09, status code: 200, Circle, error get company
+2023-07-01 22:41:09, status code: 200, Circle, error get adress
+2023-07-01 22:41:09, status code: 200, Circle, error get name_D
+2023-07-01 22:41:09, status code: 200, Circle, error get price_D
+2023-07-01 22:41:09, status code: 200, Circle, error get name_A95
+2023-07-01 22:41:09, status code: 200, Circle, error get price_A95
+2023-07-02 10:51:29, status code: 200, Circle
+2023-07-02 10:51:29, status code: 200, Circle, error get fuel_updated_date
+2023-07-02 10:51:29, status code: 200, Circle, error get company
+2023-07-02 10:51:29, status code: 200, Circle, error get adress
+2023-07-02 10:51:29, status code: 200, Circle, error get name_D
+2023-07-02 10:51:29, status code: 200, Circle, error get price_D
+2023-07-02 10:51:29, status code: 200, Circle, error get name_A95
+2023-07-02 10:51:29, status code: 200, Circle, error get price_A95
+2023-07-02 10:52:12, status code: 200, Circle
+2023-07-02 10:52:12, status code: 200, Circle, error get fuel_updated_date
+2023-07-02 10:52:12, status code: 200, Circle, error get company
+2023-07-02 10:52:12, status code: 200, Circle, error get adress
+2023-07-02 10:52:12, status code: 200, Circle, error get name_D
+2023-07-02 10:52:12, status code: 200, Circle, error get price_D
+2023-07-02 10:52:12, status code: 200, Circle, error get name_A95
+2023-07-02 10:52:12, status code: 200, Circle, error get price_A95
+2023-07-02 10:52:42, status code: 200, Circle
+2023-07-02 10:52:42, status code: 200, Circle, error get fuel_updated_date
+2023-07-02 10:52:42, status code: 200, Circle, error get company
+2023-07-02 10:52:42, status code: 200, Circle, error get adress
+2023-07-02 10:52:42, status code: 200, Circle, error get name_D
+2023-07-02 10:52:42, status code: 200, Circle, error get price_D
+2023-07-02 10:52:42, status code: 200, Circle, error get name_A95
+2023-07-02 10:52:42, status code: 200, Circle, error get price_A95
+2023-07-02 10:54:10, status code: 200, Circle
+2023-07-02 10:54:10, status code: 200, Circle, error get fuel_updated_date
+2023-07-02 10:54:10, status code: 200, Circle, error get company
+2023-07-02 10:54:10, status code: 200, Circle, error get adress
+2023-07-02 10:54:10, status code: 200, Circle, error get name_D
+2023-07-02 10:54:10, status code: 200, Circle, error get price_D
+2023-07-02 10:54:10, status code: 200, Circle, error get name_A95
+2023-07-02 10:54:10, status code: 200, Circle, error get price_A95
+2023-07-02 11:04:58, Circle, error: None
+2023-07-02 11:34:44, Circle, error: None
+2023-07-02 11:35:10, Circle, error: None
+
+
+2023-07-02 11:37:53, Circle, error: None
+2023-07-02 11:51:26, Circle, error: None
+2023-07-02 11:54:38, Circle, error: None
+2023-07-02 11:54:58, Circle, error: None
+2023-07-02 11:57:31, Circle, error: None
+2023-07-02 11:58:34, Circle, error: None
+2023-07-02 12:00:32, Circle, error: None
+2023-07-02 12:00:46, Circle, error: None
+2023-07-02 12:02:04, Circle, error: None
+2023-07-02 12:04:19, Circle, error: None
+2023-07-02 12:30:41, Circle, error: None
+2023-07-02 12:49:23, Circle, error: None
+2023-07-02 19:21:38, Circle, error: None
+2023-07-02 19:26:33, Circle, error: None
+2023-07-02 19:28:20, Circle, error: None
+2023-07-02 19:31:06, Circle, error: None
+2023-07-02 19:32:48, Circle, error: None
+2023-07-02 19:36:14, Circle, error: None
+2023-07-02 19:36:29, Circle, error: None
+2023-07-02 19:36:48, Circle, error: None
+2023-07-02 19:39:20, Circle, error: None
+2023-07-02 19:40:31, Circle, error: None
+2023-07-02 19:40:59, Circle, error: None
+2023-07-02 20:12:57, Circle, error: None
+2023-07-02 20:37:30, Circle, error: None
+2023-07-02 20:39:19, Circle, error: None
+2023-07-02 20:47:41, Circle, error: None
+2023-07-02 21:47:15, Circle, error: None
+2023-07-02 21:49:38, Circle, error: None
+2023-07-02 21:55:15, Circle, error: None
+2023-07-02 21:56:08, Circle, error: None
+2023-07-02 21:56:25, Circle, error: None
+2023-07-02 21:57:14, Circle, error: None
+2023-07-02 21:57:49, Circle, error: None
+2023-07-02 21:59:47, Circle, error: None
+2023-07-02 22:00:00, Circle, error: None
+2023-07-02 22:00:11, Circle, error: None
+2023-07-02 22:00:48, Circle, error: None
+2023-07-02 22:01:02, Circle, error: None
+2023-07-02 22:01:25, Circle, error: None
+2023-07-02 22:02:09, Circle, error: None
+2023-07-02 22:02:28, Circle, error: None
+2023-07-02 22:03:50, Circle, error: None
+2023-07-02 22:05:31, Circle, error: None
+2023-07-02 22:08:49, Circle, error: None
+2023-07-02 22:09:18, Circle, error: None
+2023-07-02 22:28:56, Circle, error: None
+2023-07-02 23:12:10, Circle, error: None

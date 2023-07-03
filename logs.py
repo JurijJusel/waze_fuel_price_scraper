@@ -1,5 +1,5 @@
 import datetime
-
+from utils.file import write_logs
 class Logger:
     def __init__(self, obj) -> None:
         self.timestamp = str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
@@ -71,19 +71,16 @@ class Logger:
             log_messages.append(log_status)
 
         log_text = "\n".join(log_messages)
-        self.write_logs(log_text, "logs.txt")
-       
-        
-    def data_value_logs(self):
-        return f"{self.timestamp}, {self.name}, {self.status}, {self.url}, {self.company}, {self.adress}"  #, {self.name_D} {self.price_D}, {self.adress}"
+        write_logs(log_text, "logs.txt")
     
+    # write_logs()   
 
-    def write_logs(self, text, txt_file):
-        try:
-            with open(txt_file, 'a') as file:
-                file.write(text + "\n")
-                # file.write(str(text) + "\n")
-            print(f"Successfully wrote logs to <{txt_file}>.")
-        except IOError as ioe:
-            print(f"Error: {ioe}, Failed write logs to <{txt_file}>.")
+    # def write_logs(self, text, txt_file):
+    #     try:
+    #         with open(txt_file, 'a') as file:
+    #             file.write(text + "\n")
+    #             # file.write(str(text) + "\n")
+    #         print(f"Logs successfully written to <{txt_file}>.") 
+    #     except IOError as ioe:
+    #         print(f"Error: {ioe}, Failed write logs to <{txt_file}>.")
     
