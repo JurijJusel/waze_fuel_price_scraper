@@ -11,7 +11,7 @@ def create_json(data, json_file):
                 file.write('\n')
                 return f'The data is added to the file <{json_file}>'
             else:
-                return f'The data list is empty. Nothing was written to <{json_file}> file.'
+                return f'The data list is empty. Nothing was written to file <{json_file}>'
     else:
         with open(path, "w") as file:
             if data:  # Check if data list is not empty
@@ -19,7 +19,7 @@ def create_json(data, json_file):
                 file.write('\n')
                 return f'Created <{json_file}> file and data written to it'
             else:
-                return f'Created <{json_file}> file, but the data list is empty.'
+                return f'Created <{json_file}> file, data list is empty!!!'
 
 
 def write_logs(text, txt_file):
