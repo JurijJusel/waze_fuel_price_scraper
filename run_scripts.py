@@ -1,6 +1,7 @@
 import os
 from constants import script_run_files
-import subprocess
+# import subprocess
+
 
 script_dir = "scripts/"
 executed_files = []
@@ -15,7 +16,7 @@ def run_scripts():
             script_path = os.path.join(script_dir, script_file)
             with open(script_path, 'r') as file:
                 script_code = file.read()
-                exec(script_code)
+                exec(script_code, globals())  # Include globals() as second argument!!!!
                 count += 1
                 executed_files.append(script_file)
         
