@@ -11,4 +11,4 @@ companys = ['Alauša', 'Andopas', 'Baltic+Petroleum', 'Circle+K', 'EMSI', 'Ecoil
             ]  # https://gas.didnt.work/?country=lt
 
 
-script_run_files = [ "1", "3", "circle"]  # "1"
+script_run_files = ["circle"]

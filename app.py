@@ -1,44 +1,47 @@
-from bs4 import BeautifulSoup
-import requests
-from utils.file import create_json
-from constants import headers
 from urls import urls
-from logs import Logger
-import os
 from run_scripts import run_scripts
-# from scripts.circle import get_circle_data
 
 class FuelCrawler:
     def __init__(self, name):
         self.name = name
-        self.url = self.get_url_by_company_name()
-        self.headers = headers
         self.fuel_updated_date = None
         self.company = None
         self.adress = None
-        self.status = None
         self.name_D = None
         self.price_D = None
         self.name_A95 = None
         self.price_A95 = None
-        self.resp_err = None
-        self.json_file = 'fuel.json'
-        self.posts = []
-        
+        self.req_status = None
+        self.exc_err = None
+        self.url = None
         
     def get_url_by_company_name(self):
         selected_url = next(item['url'] for item in urls if item['name'] == self.name)
         return selected_url
     
-        
-    def download_response(self):
-        req = requests.get(self.url, self.headers)
-        if req.ok:
-            self.status = req.status_code
-            soup = BeautifulSoup(req.content, features="lxml")
-            return soup
-        else:
-            self.status = req.status_code
+                  
+if __name__ == '__main__':
+    run_scripts()
+    
+    
+    
+    # station_c = FuelCrawler(name='Circle')
+    # selected_url = station.get_url_by_company_name()
+    # station.get_url_by_company_name()
+    # print(selected_url)
+    # station.data_to_json() 
+    # logger = Logger(station)
+    # logger.status_log()
+
+
+ # def download_response(self):
+    #     req = requests.get(self.url, self.headers)
+    #     if req.ok:
+    #         self.status = req.status_code
+    #         soup = BeautifulSoup(req.content, features="lxml")
+    #         return soup
+    #     else:
+    #         self.status = req.status_code
     
       
     # def get_data(self, soup):
@@ -81,30 +84,19 @@ class FuelCrawler:
             
         # return self.posts
     
-    def try_get_responce(self):
-        try:
-            soup_response = self.download_response()
-            # return self.get_data(soup_response)
-            return soup_response
+    # def try_get_responce(self):
+    #     try:
+    #         soup_response = self.download_response()
+    #         # return self.get_data(soup_response)
+    #         return soup_response
         
-        except requests.exceptions.ConnectionError as rqe:
-            # print("Error get responce exception info:", rqe)
-            self.resp_err = rqe
+    #     except requests.exceptions.ConnectionError as rqe:
+    #         # print("Error get responce exception info:", rqe)
+    #         self.resp_err = rqe
             
                
-    def data_to_json(self):
-        self.try_get_responce()
-        create_json(self.posts, self.json_file )
-        
-            
-if __name__ == '__main__':
-    station = FuelCrawler('Circle')
-  
-    run_scripts()
- 
-    station.data_to_json() 
-    logger = Logger(station)
-    logger.status_log()
-
+    # def data_to_json(self):
+    #     self.get_url_by_company_name()
+    #     create_json(self.posts, self.json_file )
     
         

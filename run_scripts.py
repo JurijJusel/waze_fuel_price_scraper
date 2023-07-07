@@ -1,6 +1,5 @@
 import os
 from constants import script_run_files
-# import subprocess
 
 
 script_dir = "scripts/"
@@ -19,14 +18,6 @@ def run_scripts():
                 exec(script_code, globals())  # Include globals() as second argument!!!!
                 count += 1
                 executed_files.append(script_file)
-        
-        # if script_file[:-3] in script_run_files:
-        #     script_path = os.path.join(script_dir, script_file)
-        #     process = subprocess.Popen(['python3', script_path])
-        #     process.wait()
-        #     if process.returncode == 0:
-        #         count += 1
-        #         executed_files.append(script_file)
                 
     print(f"Number of files executed: {count}")
     print("Executed files:", executed_files)
@@ -34,6 +25,22 @@ def run_scripts():
     print("All files in scrips folder", all_script_files)
 
 
+
+
+
+
+
+  # import subprocess   
+        # if script_file[:-3] in script_run_files:
+        #     script_path = os.path.join(script_dir, script_file)
+        #     process = subprocess.Popen(['python3', script_path])
+        #     process.wait()
+        #     if process.returncode == 0:
+        #         count += 1
+        #         executed_files.append(script_file)
+        
+        
+        
 # run_scripts()
 # all_script_files = [file for file in os.listdir(script_dir) if file.endswith('.py')]
 
