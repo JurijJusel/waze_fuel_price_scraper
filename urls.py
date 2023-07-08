@@ -7,6 +7,6 @@ urls = [
     {'name': 'Alausa', 'url': 'https://gasprices.dna.lv/lt/station/52647/alausa'},
     {'name': 'Jozita', 'url': 'http://www.degalukainos.lt'},
     {'name': 'Emsi', 'url': 'https://www.kuro-kainos.lt/degalu-kainos/emsi'},
-    {'name': 'Takuras', 'url': 'http://www.degalukainos.lt/map.php?id=765'},
-    {'name': 'Abromika', 'url': 'https://www.abromika.lt/#'}
+    {'name': 'Takuras', 'url': "https://gas.didnt.work/?country=lt&brand=Takuras&city=Vilnius"},
+    {'name': 'Abromika', 'url': "https://www.abromika.lt/#"}
 ]
