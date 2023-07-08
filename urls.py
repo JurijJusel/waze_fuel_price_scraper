@@ -8,5 +8,6 @@ urls = [
     {'name': 'Jozita', 'url': 'http://www.degalukainos.lt'},
     {'name': 'Emsi', 'url': 'https://www.kuro-kainos.lt/degalu-kainos/emsi'},
     {'name': 'Takuras', 'url': "https://gas.didnt.work/?country=lt&brand=Takuras&city=Vilnius"},
+    {'name': "Kvistija", "url": "https://gas.didnt.work/?country=lt&brand=Kvistija&city=Vilnius"},
     {'name': 'Abromika', 'url': "https://www.abromika.lt/#"}
 ]
