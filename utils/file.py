@@ -20,16 +20,4 @@ def create_json(data, json_file):
                 return f'Created <{json_file}> file and data written to it'
             else:
                 return f'Created <{json_file}> file, data list is empty!!!'
-
-
-def write_logs(text, txt_file):
-        try:
-            with open(txt_file, 'a') as file:
-                file.write(text + "\n")
-                # file.write(str(text) + "\n")
-            print(f"Logs successfully written to <{txt_file}>.") 
-        except IOError as ioe:
-            print(f"Error: {ioe}, Failed write logs to <{txt_file}>.")
-    
-
-        
+                  
