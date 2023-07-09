@@ -6,6 +6,7 @@ from station import Station
 from utils.file import create_json
 from logs import write_logs
 
+
 station_circle = FuelCrawler(name='Circle')
 name = station_circle.name
 selected_url = station_circle.get_url_by_company_name()

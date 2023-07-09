@@ -10,9 +10,9 @@ def run_scripts():
     count = 0
     for script_file in os.listdir(script_dir):
         if script_file.endswith('.py'):
-            all_script_files.append(script_file)
+            all_script_files.append(script_file)  
         if script_file[:-3] in script_run_files: 
-            script_path = os.path.join(script_dir, script_file)
+            script_path = os.path.join(script_dir, script_file) #path = Path(f"data/{file}")
             with open(script_path, 'r') as file:
                 script_code = file.read()
                 exec(script_code, globals())  # Include globals() as second argument!!!!
