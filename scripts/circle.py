@@ -4,8 +4,7 @@ from constants import headers
 from app import FuelCrawler
 from station import Station
 from utils.file import create_json
-from logs import write_logs
-
+from logs import Crawl_logs as log
 
 station_circle = FuelCrawler(name='Circle')
 name = station_circle.name
@@ -16,12 +15,17 @@ def download_response(url):
     req = requests.get(url, headers=headers)
     if req.ok:
         req_status = req.status_code
-        write_logs(name, f"status code: {req_status}")
+        # log = Crawl_logs(name, f"status code: {req_status}")
+        log.write_log(name, f"status code: {req_status}")
+        # write_logs(name, f"status code: {req_status}")
         soup = BeautifulSoup(req.content, features="lxml")
         return soup
     else:
         req_status = req.status_code
-        return write_logs(name, f"status code: {req_status}")
+        log.write_log(name, f"status code: {req_status}")
+        return False
+        # log = Crawl_logs(name, f"status code: {req_status}")
+        # return write_logs(name, f"status code: {req_status}")
 
 
 def get_circle_data(soup):
@@ -39,7 +43,9 @@ def get_circle_data(soup):
             name_A95 = table_row.select("td[data-id]")[1]["data-id"].split("-")[-1]
             price_A95 = table_row.select("td[data-id]")[1].text
         except (AttributeError, IndexError) as err:
-            write_logs(name, f"fuel_updated_date error: {err}")
+            # log = Crawl_logs(name, f"attribute_error in def get_circle_data: {err}")
+            log.write_log(name, f"attribute_error in def get_circle_data: {err}")
+            # write_logs(name, f"fuel_updated_date error: {err}")
 
         station = Station(company, address, fuel_updated_date, name_D, price_D, name_A95, price_A95)
         data = station.data_to_dict()
@@ -54,12 +60,15 @@ def try_get_responce():
         soup_response = download_response(selected_url)
         circle_data = get_circle_data(soup_response)
         if circle_data is None:
-            return write_logs(name, f"soup_response error: data is {circle_data}")
+            # log = Crawl_logs(name, f"status code: {circle_data}")
+            return log.write_log(name, f"status code: {circle_data}")
+            # return write_logs(name, f"soup_response error: data is {circle_data}")
         else:
             return circle_data
     except (Exception, ConnectionError) as e: 
-        return write_logs(name, f"soup_response error: {e}")
-        
+        # log = Crawl_logs(name, f"exception in def try_get_responce: {e}")
+        return log.write_log(name, f"exception in def try_get_responce: {e}")
+        # return write_logs(name, f"soup_response error: {e}")
         
 def data_to_json():
     try_get_responce()
