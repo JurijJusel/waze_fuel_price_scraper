@@ -1,6 +1,7 @@
 from urls import fuel_station_urls
 from run_scripts import run_scripts
-# from manager import Manager
+from manager import Manager
+
 class FuelCrawler:
     def __init__(self, name:str):
         self.name = name
@@ -24,8 +25,9 @@ class FuelCrawler:
                        
 if __name__ == '__main__':
     crawler = FuelCrawler(name='Circle')
-    from manager import Manager
-    manager = Manager(status=True).activate_scripts()
+    manager = Manager(status=True)
+
+    # manager = Manager(status=True).activate_scripts() #TODO taip geriau nedaryti jei as manager noriu veliau dar panaudoti,o tu ji ensi issaugojes butent kaip obj o i return ikisai runscript,tai manger savyje saugos ne manger obj o run_script return result
     # manager.activate_scripts()
   
     

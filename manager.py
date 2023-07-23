@@ -1,21 +1,23 @@
-from app import FuelCrawler
+# from app import FuelCrawler #TODO cia del sito buvo blogai importai pjovesi
 class Manager:
     def __init__(self, status=True) -> None:
         self.status = status
         print("manager init method")
     
-    def activate_scripts(self):
-        print("running def activate_scripts")
+    # def activate_scripts(self):#TODO perkelk i crawler arba script klase
+    #     print("running def activate_scripts")
+    #     if self.status:
+    #         print("run")
+    #         FuelCrawler.run()
+    #     else:
+    #         print("not activate_scripts from manager")
+ 
+ #TODO sukurk funkcija kuri aktyvyuoja darba ,as cia savo prirasysiu jei ka pamodifikuosi,
+ 
+    def is_activate(self):
         if self.status:
-            print("run")
-            FuelCrawler.run()
-        else:
-            print("not activate_scripts from manager")
- 
- 
- 
- 
- 
+            return True
+    #TODO main=name vietoje po objektu realizavimo tikrink ar manager yra aktyvuotas jei yra tada paleidinek crawler.run_scripts()
  
  
  
