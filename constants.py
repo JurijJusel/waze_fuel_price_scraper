@@ -3,12 +3,20 @@ headers = {
     }
 
 
-companys = ['Alauša', 'Andopas', 'Baltic+Petroleum', 'Circle+K', 'EMSI', 'Ecoil', 
-            'Egas', 'Jozita', 'Kvistija', 'Neste', 'Orlen', 'Saurida', 'Skulas', 
-            'Stateta', 'Takuras', 'Viada', 'Andopas','Abromika', 'Bonsa', 'Deliuvis', 
-            'Junasa', 'Kovaras', 'Melkasta', 'Milda', 'Narjanta', 'Olerex', 'SG+dujos', 
-            'Stepdega', 'Trevena', 'Tubus', 'Vildega'
-            ]  # https://gas.didnt.work/?country=lt
+script_run_files = [
+    'stateta', 'ecoil', 'saurida', 'skulas',  
+    'neste', 'jozita', 'viada', 'orlen', 'emsi', 
+    'baltic_petroleum', 'circle', 'takuras', 'kvistija', 'alausa',
+    ]  # https://gas.didnt.work/?country=lt
 
 
-script_run_files = ["circle"]#, "kvistija", "takuras"]
+companys = [
+    'Alauša', 'Andopas', 'Baltic+Petroleum', 'Circle+K', 'EMSI', 'Ecoil', 
+    'Egas', 'Jozita', 'Kvistija', 'Neste', 'Orlen', 'Saurida', 'Skulas', 
+    'Stateta', 'Takuras', 'Viada', 'Andopas','Abromika', 'Bonsa', 'Deliuvis', 
+    'Junasa', 'Kovaras', 'Melkasta', 'Milda', 'Narjanta', 'Olerex', 'SG+dujos', 
+    'Stepdega', 'Trevena', 'Tubus', 'Vildega',
+    ]  # https://gas.didnt.work/?country=lt
+
+
+ 
