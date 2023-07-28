@@ -6,17 +6,11 @@ from station import Station
 from utils.file import create_json
 from logs import Script_log
 
-"""
-importuojamos lib,
-kintamieji kurie reikalingi sukuri,
-tada funkcijos ir tik tada visas veikimas 
-koki funkcija naudoji  ir panasiai
-"""
 
 log = Script_log()
-station_circle = FuelCrawler(name='Circle')
-name = station_circle.name
-selected_url = station_circle.get_url_by_company_name()
+station_ecoil = FuelCrawler(name='Ecoil')
+name = station_ecoil.name
+selected_url = station_ecoil.get_url_by_company_name()
 fuel_data = 'fuel.json'
 
 
@@ -37,7 +31,7 @@ def download_response(url):
         return False
 
 
-def get_circle_data(soup):
+def get_ecoil_data(soup):
     posts = []
     table_rows = soup.find_all('tr')
     for index in range(1, len(table_rows)):
@@ -62,27 +56,5 @@ def get_circle_data(soup):
     return posts
 
 
-data = get_circle_data(download_response(selected_url))
+data = get_ecoil_data(download_response(selected_url))
 print(create_json(data, fuel_data))
-
-
-# def try_get_responce():
-#     global circle_data
-#     try:
-#         soup_response = download_response(selected_url)
-#         circle_data = get_circle_data(soup_response)
-#         if circle_data is None:
-#             log.write_log(name, f"try_get_responce: {circle_data}")
-#             return True
-#         else:
-#             return circle_data
-#     except (Exception, ConnectionError) as e: 
-#         log.write_log(name, f"try_get_responce: {e}")
-#         return False
-        
-# def data_to_json():
-#     try_get_responce()
-#     return create_json(circle_data, 'fuel.json')
-
-
-# print(data_to_json())
