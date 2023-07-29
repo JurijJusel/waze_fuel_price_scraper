@@ -1,7 +1,7 @@
 import os
 from constants import script_run_files
 
-
+#TODO padaryk object is siu tavo surasytu duomenu ir funkciju
 script_dir = "scripts/"
 executed_files = []
 all_script_files = []

@@ -2,7 +2,7 @@ from run_scripts import run_scripts
 from manager import Manager
 
 class FuelCrawler:
-    def __init__(self):
+    def __init__(self):#TODO station ir fuel-crawler ju init identiski,reiktu vienu  atsikratyti
         self.fuel_updated_date = None
         self.company = None
         self.adress = None

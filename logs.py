@@ -5,7 +5,8 @@ class Script_log:
     def __init__(self):
         self.txt_file = "logs.txt"
         self.time_stamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
+        #TODO palik time_stamp field tuscia o funkcijoje write_log tu i ji ikysi dabartini laika
+        
     def write_log(self, name, message):
         path = Path(f"data/{self.txt_file}")
         log_status = f"{self.time_stamp}, {name}, {message}"

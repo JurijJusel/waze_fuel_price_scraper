@@ -19,4 +19,4 @@ fuel_station_urls = [
 def get_url_by_company_name(self):
         selected_url = next(item['url'] for item in fuel_station_urls if item['name'] == self.name)
         return selected_url
-    
+#TODO kurioje vietoj sio failo turinys yra naudojamas?
