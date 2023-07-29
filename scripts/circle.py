@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 from constants import headers
-from app import FuelCrawler
 from station import Station
 from utils.file import create_json
 from logs import Script_log
@@ -14,10 +13,11 @@ koki funkcija naudoji  ir panasiai
 """
 
 log = Script_log()
-station_circle = FuelCrawler(name='Circle')
-name = station_circle.name
-selected_url = station_circle.get_url_by_company_name()
+# station_circle = FuelCrawler(name='Circle')
+# name = station_circle.name
+name = 'Circle'
 fuel_data = 'fuel.json'
+url = 'https://gas.didnt.work/?country=lt&brand=Circle+K&city=Vilnius'
 
 
 def download_response(url):
@@ -52,8 +52,7 @@ def get_circle_data(soup):
             name_A95 = table_row.select("td[data-id]")[1]["data-id"].split("-")[-1]
             price_A95 = table_row.select("td[data-id]")[1].text
         except (AttributeError, IndexError) as err:
-            log.write_log(name, f"attribute_error in def get_circle_data: {err}")
-           
+            log.write_log(name, f"attribute_error in def get_circle_data: {err}")          
 
         station = Station(company, address, fuel_updated_date, name_D, price_D, name_A95, price_A95)
         data = station.data_to_dict()
@@ -62,7 +61,7 @@ def get_circle_data(soup):
     return posts
 
 
-data = get_circle_data(download_response(selected_url))
+data = get_circle_data(download_response(url))
 print(create_json(data, fuel_data))
 
 

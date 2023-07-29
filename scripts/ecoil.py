@@ -1,16 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
 from constants import headers
-from app import FuelCrawler
 from station import Station
 from utils.file import create_json
 from logs import Script_log
 
 
 log = Script_log()
-station_ecoil = FuelCrawler(name='Ecoil')
-name = station_ecoil.name
-selected_url = station_ecoil.get_url_by_company_name()
+name = 'Ecoil'
+url = 'https://gas.didnt.work/?country=lt&brand=Ecoil&city=Vilnius'
 fuel_data = 'fuel.json'
 
 
@@ -48,7 +46,6 @@ def get_ecoil_data(soup):
         except (AttributeError, IndexError) as err:
             log.write_log(name, f"attribute_error in def get_circle_data: {err}")
            
-
         station = Station(company, address, fuel_updated_date, name_D, price_D, name_A95, price_A95)
         data = station.data_to_dict()
         posts.append(data)
@@ -56,5 +53,5 @@ def get_ecoil_data(soup):
     return posts
 
 
-data = get_ecoil_data(download_response(selected_url))
+data = get_ecoil_data(download_response(url))
 print(create_json(data, fuel_data))
