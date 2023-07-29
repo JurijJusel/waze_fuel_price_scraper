@@ -1,10 +1,9 @@
-from urls import fuel_station_urls
 from run_scripts import run_scripts
 from manager import Manager
 
 class FuelCrawler:
-    def __init__(self, name:str):
-        self.name = name
+    def __init__(self):#, name:str):
+        # self.name = name
         self.fuel_updated_date = None
         self.company = None
         self.adress = None
@@ -14,17 +13,13 @@ class FuelCrawler:
         self.price_A95 = None
         self.req_status = None
         self.url = None
-       
-    def get_url_by_company_name(self):
-        selected_url = next(item['url'] for item in fuel_station_urls if item['name'] == self.name)
-        return selected_url
     
     def run(self):
         run_s = run_scripts()  
         return run_s
                        
 if __name__ == '__main__':
-    crawler = FuelCrawler(name='Circle')
+    crawler = FuelCrawler()
     manager = Manager(status=True)
     if manager.is_activate():
         crawler.run()
