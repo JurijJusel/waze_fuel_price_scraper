@@ -5,16 +5,8 @@ from station import Station
 from utils.file import create_json
 from logs import Script_log
 
-"""
-importuojamos lib,
-kintamieji kurie reikalingi sukuri,
-tada funkcijos ir tik tada visas veikimas 
-koki funkcija naudoji  ir panasiai
-"""
 
 log = Script_log()
-# station_circle = FuelCrawler(name='Circle')
-# name = station_circle.name
 name = 'Circle'
 fuel_data = 'fuel.json'
 url = 'https://gas.didnt.work/?country=lt&brand=Circle+K&city=Vilnius'

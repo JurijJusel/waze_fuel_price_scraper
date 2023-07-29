@@ -2,8 +2,7 @@ from run_scripts import run_scripts
 from manager import Manager
 
 class FuelCrawler:
-    def __init__(self):#, name:str):
-        # self.name = name
+    def __init__(self):
         self.fuel_updated_date = None
         self.company = None
         self.adress = None
@@ -24,10 +23,3 @@ if __name__ == '__main__':
     if manager.is_activate():
         crawler.run()
        
-    # manager = Manager(status=True).activate_scripts() #TODO taip
-    # geriau nedaryti jei as manager noriu veliau dar panaudoti,o 
-    # tu ji ensi issaugojes butent kaip obj o i return ikisai \
-        # runscript,tai manger savyje saugos ne manger obj o 
-        # run_script return result
-    # manager.activate_scripts()
-  
