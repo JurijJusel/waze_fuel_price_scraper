@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 from constants import headers
-from app import FuelCrawler
 from station import Station
 from utils.file import create_json
 from logs import Script_log
