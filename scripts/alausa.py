@@ -1,12 +1,13 @@
 import requests
+import datetime
 from bs4 import BeautifulSoup
 from constants import headers
 from station import Station
 from utils.file import create_json
 from logs import Script_log
 
-log = Script_log()#TODO kai darai write_log self.time_stamp imamas ne tada kai saugau o imamas kada sis object buvo sukurtas
-
+time_stamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+log = Script_log(time_stamp)
 name = 'Alausa'
 url = 'https://gas.didnt.work/?country=lt&brand=Alau%C5%A1a&city=Vilnius'
 fuel_data = 'fuel.json'

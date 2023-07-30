@@ -4,9 +4,11 @@ from constants import headers
 from station import Station
 from utils.file import create_json
 from logs import Script_log
+import datetime
 
 
-log = Script_log()
+time_stamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+log = Script_log(time_stamp)
 name = 'Ecoil'
 url = 'https://gas.didnt.work/?country=lt&brand=Ecoil&city=Vilnius'
 fuel_data = 'fuel.json'
