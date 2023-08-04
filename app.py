@@ -10,6 +10,7 @@ class FuelCrawler:
     def run(self, script_obj):
         script_obj.run_scripts()
         script_obj.print_scripts()
+     
                             
 if __name__ == '__main__':
     crawler = FuelCrawler()

@@ -8,7 +8,7 @@ from logs import Script_log
 response_log = Script_log()
 content_log = Script_log()
 name = 'Baltic_Petroleum'
-fuel_data = 'fuel.json'
+json_file = 'fuel.json'
 url = 'https://gas.didnt.work/?country=lt&brand=Baltic+Petroleum&city=Vilnius'
 
 
@@ -57,7 +57,7 @@ def get_baltic_petroleum_data(soup):
 response = download_response(url)
 if response:
     data = get_baltic_petroleum_data(response)
-    result_json = create_json(data, fuel_data)
+    result_json = create_json(data, json_file)
     print(result_json)                 
 else:
     response_log.write_log(name, f"the request failed")
