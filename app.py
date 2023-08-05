@@ -2,7 +2,6 @@ from manager import Manager
 from logs import Script_log
 from run_scripts import Scripts
 
-
 class FuelCrawler:
     def __init__(self):
         pass
