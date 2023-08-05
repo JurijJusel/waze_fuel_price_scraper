@@ -2,32 +2,27 @@ from pathlib import Path
 import json
 
 
-def create_json(data, json_file):
+def create_json(new_data, json_file):
     path = Path(f"data/{json_file}")
     if path.is_file():
-        with open(path, "a") as file:
-            if data:  # Check if data list is not empty
-                json.dump(data, file, indent=2)
-                file.write('\n')
-                return f'The data is added to the <{json_file}> file'
+        with open(path, "r+") as file:
+            try:
+                json_obj = json.load(file)
+            except json.JSONDecodeError:
+                json_obj = []
+            combined_data = json_obj + new_data
+
+        with open(path, "w") as file:
+            if combined_data:
+                json.dump(combined_data, file, indent=2)
+                return f'The data is added to the file <{json_file}>'
             else:
-                return f'The data list is empty. Nothing was written to <{json_file}> file.'
+                return f'The data list is empty. Nothing was written to file <{json_file}>'
     else:
         with open(path, "w") as file:
-            if data:  # Check if data list is not empty
-                json.dump(data, file, indent=2)
-                file.write('\n')
+            if new_data: 
+                json.dump(new_data, file, indent=2)
                 return f'Created <{json_file}> file and data written to it'
             else:
-                return f'Created <{json_file}> file, but the data list is empty.'
-
-
-def write_to_txt_file(text, txt_file):
-    try:
-        with open(txt_file, 'a') as file:
-            file.write(text + "\n")
-        print(f"Successfully wrote the string to <{txt_file}>.")
-    except IOError:
-        print(f"Error: Failed not write to <{txt_file}>.")
-
-        
+                return f'Created <{json_file}> file, data list is empty!!!'
+    
