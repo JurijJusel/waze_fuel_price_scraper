@@ -8,17 +8,15 @@ class Station:
         self.price_D = price_D
         self.name_A95 = name_A95
         self.price_A95 = price_A95
-        
-        
+               
     def data_to_dict(self):
         return {
             'company': self.company,
             'adress': self.adress,
-            'fue l_updated_date': self.fuel_updated_date,
+            'fuel_updated_date': self.fuel_updated_date,
             self.name_D: self.price_D,
             self.name_A95: self.price_A95  
             }
-
 
     def __str__(self):
         return f"company: {self.company}, adress: {self.adress}, fuel_updated_date: {self.fuel_updated_date}, {self.name_D}: {self.price_D}, {self.name_A95}: {self.price_A95}" 
