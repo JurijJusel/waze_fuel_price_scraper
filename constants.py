@@ -3,7 +3,8 @@ headers = {
     }
 
 
-script_run_files = ['circle', 'viada', 'neste', 'emsi', 'baltic_petroleum']  # 'jozita', 'orlen', 'baltic_petroleum', 'alausa', 'saurida', 'kvistija', 'ecoil', 'takuras', 'stateta', 'skulas']  
+script_run_files = ['circle', 'viada', 'neste', 'emsi', 'baltic_petroleum']  
+# 'jozita', 'orlen', 'baltic_petroleum', 'alausa', 'saurida', 'kvistija', 'ecoil', 'takuras', 'stateta', 'skulas']  
 # https://gas.didnt.work/?country=lt
 
 
