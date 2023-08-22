@@ -6,56 +6,67 @@ from connect_to_db import db_connection
 json_file_path = "data/fuel.json"
 connection = db_connection()
 
-def query_existing_station_id(connection, company):
+def query_existing_station_id(connection, company, address):
     try:
         cursor = connection.cursor()
-        cursor.execute("SELECT station_id FROM stations WHERE station_name = %s", (company,))
+        cursor.execute("SELECT station_id FROM stations WHERE station_name = %s AND address = %s", (company, address))
         station_id_record = cursor.fetchone()
         cursor.close()
         return station_id_record
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error get existing id:", err)
         return None
+    
 
-
-def query_update_date_for_existing_station_record(connection, company):
+def query_update_date_for_existing_station_record(connection, company, address):
     try:
         cursor = connection.cursor()
-        update_query = "UPDATE stations SET updated_date = %s WHERE station_name = %s"
+        update_query = "UPDATE stations SET updated_date = %s WHERE station_name = %s AND address = %s"
         updated_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        cursor.execute(update_query, (updated_date, company))
+        cursor.execute(update_query, (updated_date, company, address))
         connection.commit()
         cursor.close()
-        print("Updated date for existing record:", company, updated_date)
+        print("Updated date for station existing record:", company, address, updated_date)
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error updating existing record:", err)
 
 
-def query_insert_new_staion_record(connection, company):
+def query_insert_new_staion_record(connection, company, address, address_id, fuel_id):
     try:
         cursor = connection.cursor()
-        insert_query = "INSERT INTO stations (station_name, created_date) VALUES (%s, %s)"
+        insert_query = "INSERT INTO stations (station_name, address, created_date, fk_address_id, fk_fuel_id) VALUES (%s, %s, %s, %s, %s)"
         created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        cursor.execute(insert_query, (company, created_date))
+        cursor.execute(insert_query, (company, address, created_date, address_id, fuel_id))
         connection.commit()
         cursor.close()
-        print("Inserted new record:", company, created_date)
+        print("Inserted new station record:", company, address, created_date, address_id, fuel_id)
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error inserting new record:", err)
         
-        
-# def query_get_fuel_id(connection):
-#     try:
-#         cursor = connection.cursor()
-#         cursor.execute("SELECT MAX(fuel_id) FROM fuel")  #"SELECT fuel_id FROM fuel"
-#         fuel_id = cursor.fetchone()[0]
-#         cursor.close()
-#         return fuel_id
-#     except (Exception, psycopg2.DatabaseError) as err:
-#         print("Error getting inserted fuel_id:", err)
-#         return None
-        
-        
+############    
+def query_get_fuel_id(connection):
+    try:
+        cursor = connection.cursor()
+        cursor.execute("SELECT MAX(fuel_id) FROM fuel")  #"SELECT fuel_id FROM fuel" "SELECT MAX(fuel_id) FROM fuel"
+        fuel_id = cursor.fetchone()[0]
+        cursor.close()
+        return fuel_id
+    except (Exception, psycopg2.DatabaseError) as err:
+        print("Error getting inserted fuel_id:", err)
+        return None
+
+def query_get_address_id(connection):
+    try:
+        cursor = connection.cursor()
+        cursor.execute("SELECT MAX(address_id) FROM address")  #"SELECT address_id FROM address" "SELECT MAX(address_id) FROM address"
+        address_id = cursor.fetchone()[0]
+        cursor.close()
+        return address_id
+    except (Exception, psycopg2.DatabaseError) as err:
+        print("Error getting inserted address_id:", err)
+        return None
+
+##############       
 def query_insert_fuel_data_record(connection, web_updated_date, diesel, a95):
     try:
         cursor = connection.cursor()
@@ -66,32 +77,56 @@ def query_insert_fuel_data_record(connection, web_updated_date, diesel, a95):
         print("Inserted fuel data:", web_updated_date, diesel, a95)
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error inserting fuel data:", err)
+        
 
-
+def query_update_fuel_data_record(connection, fuel_id, web_updated_date, diesel, a95):
+    try:
+        cursor = connection.cursor()
+        update_query = "UPDATE fuel SET web_updated_date = %s, diesel = %s, a95 = %s WHERE fuel_id = %s"
+        cursor.execute(update_query, (web_updated_date, diesel, a95, fuel_id))
+        connection.commit()
+        cursor.close()
+        print("Updated fuel data:", web_updated_date, diesel, a95)
+    except (Exception, psycopg2.DatabaseError) as err:
+        print("Error updating fuel data:", err)
+        
+        
 def split_address(input_string):
     address_split = input_string.split(', ')
     street_parts = address_split[0].split()
     if street_parts[-2].endswith('.'):
         street_name = ' '.join(street_parts[:-2]) + ' ' + street_parts[-2]
-        street_number = street_parts[-1]
+        house_number = street_parts[-1]
     else:
         street_name = ' '.join(street_parts[:-1])
-        street_number = street_parts[-1]
+        house_number = street_parts[-1]
     city = address_split[1]
-    return street_name, street_number, city
+    return street_name, house_number, city
 
 
-def query_insert_address_data(connection, street, street_nm, city):
+def query_insert_address_data(connection, street, house_number, city):
     try:
         cursor = connection.cursor()
-        insert_query = "INSERT INTO address (street, street_nm, city) VALUES (%s, %s, %s)"
-        cursor.execute(insert_query, (street, street_nm, city))
+        insert_query = "INSERT INTO address (street, house_number, city) VALUES (%s, %s, %s)"
+        cursor.execute(insert_query, (street, house_number, city))
         connection.commit()
         cursor.close()
-        print("Inserted address data:", street, street_nm, city)
+        print("Inserted address data:", street, house_number, city)
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error inserting address data:", err)
 
+
+def query_update_address_data(connection, address_id, street, house_number, city):
+    try:
+        cursor = connection.cursor()
+        insert_query = "UPDATE address SET street = %s, house_number = %s, city = %s WHERE address_id = %s"
+        cursor.execute(insert_query, (street, house_number, city, address_id))
+        connection.commit()
+        cursor.close()
+        print("Updated address data:", street, house_number, city)
+    except (Exception, psycopg2.DatabaseError) as err:
+        print("Error updating address data:", err)
+        
   
 def json_data_to_db(connection, json_file):
     if not connection:
@@ -103,28 +138,39 @@ def json_data_to_db(connection, json_file):
         for item in json_obj:  
             company = item['company']
             address = item['address']
-            street, street_nm, city = split_address(address)
-            # print(f"{street} - {street_nm} - {city}")
-            # try:
-            station_id = query_existing_station_id(connection, company)
-            query_insert_address_data(connection, street, street_nm, city)
-
-            if station_id:
-                query_update_date_for_existing_station_record(connection, company)
-            else:
-                query_insert_new_staion_record(connection, company)
-                    
-            # web_updated_date = item['fuel_updated_date']  # fuel table
-            # diesel = float(item['diesel']) if item['diesel'] != '-' else 0
-            # a95 = float(item['95']) if item['95'] != '-' else 0
-            # query_insert_fuel_data_record(connection, web_updated_date, diesel, a95)
-                    
+            street, house_number, city = split_address(address)
+            station_id = query_existing_station_id(connection, company, address)
+            print(station_id)
+            web_updated_date = item['fuel_updated_date']  # fuel table
+            diesel = float(item['diesel']) if item['diesel'] != '-' else 0
+            a95 = float(item['95']) if item['95'] != '-' else 0
             
-                
-        connection.close()
+                 
+            if station_id:
+                address_id = query_get_address_id(connection)
+                fuel_id = query_get_fuel_id(connection)
+                query_update_fuel_data_record(connection, fuel_id, web_updated_date, diesel, a95)
+                query_update_address_data(connection, address_id, street, house_number, city)
+                query_update_date_for_existing_station_record(connection, company, address)
+                print("UPDAITING done")
+            else:
+                query_insert_fuel_data_record(connection, web_updated_date, diesel, a95)
+                query_insert_address_data(connection, street, house_number, city)
+                fuel_id = query_get_fuel_id(connection)
+                address_id = query_get_address_id(connection)
+                query_insert_new_staion_record(connection, company, address, address_id, fuel_id)  
+                print("INSERTING done")
+
+            connection.commit()
+            # except (Exception, psycopg2.DatabaseError) as err:
+            #     print("Error in transaction:", err)
+            #     connection.rollback()               
+        
         print("Successful insert/update data to db")
-    except (Exception, psycopg2.DatabaseError) as err:
-        print("Error insert/update data to PostgreSQL:", err)
+    except (Exception, psycopg2.DatabaseError, psycopg2.Error, psycopg2.DataError) as err:
+        print("Error data_to_db insert/update data to PostgreSQL:", err)
+    finally:
+        connection.close()
         
         
 json_data_to_db(connection, json_file_path)
