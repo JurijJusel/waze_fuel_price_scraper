@@ -55,7 +55,18 @@ def query_get_fuel_id(connection):
         print("Error getting inserted fuel_id:", err)
         return None
 
+def query_get_address_id(connection):
+    try:
+        cursor = connection.cursor()
+        cursor.execute("SELECT MAX(address_id) FROM address")  #"SELECT address_id FROM address" "SELECT MAX(address_id) FROM address"
+        address_id = cursor.fetchone()[0]
+        cursor.close()
+        return address_id
+    except (Exception, psycopg2.DatabaseError) as err:
+        print("Error getting inserted address_id:", err)
+        return None
 
+    
 def query_insert_fuel_data_record(connection, web_updated_date, diesel, a95):
     try:
         cursor = connection.cursor()
