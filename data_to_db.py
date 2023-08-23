@@ -43,7 +43,7 @@ def query_insert_new_staion_record(connection, company, address, address_id, fue
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error inserting new record:", err)
         
-############    
+           
 def query_get_fuel_id(connection):
     try:
         cursor = connection.cursor()
@@ -55,18 +55,7 @@ def query_get_fuel_id(connection):
         print("Error getting inserted fuel_id:", err)
         return None
 
-def query_get_address_id(connection):
-    try:
-        cursor = connection.cursor()
-        cursor.execute("SELECT MAX(address_id) FROM address")  #"SELECT address_id FROM address" "SELECT MAX(address_id) FROM address"
-        address_id = cursor.fetchone()[0]
-        cursor.close()
-        return address_id
-    except (Exception, psycopg2.DatabaseError) as err:
-        print("Error getting inserted address_id:", err)
-        return None
 
-##############       
 def query_insert_fuel_data_record(connection, web_updated_date, diesel, a95):
     try:
         cursor = connection.cursor()
@@ -115,18 +104,6 @@ def query_insert_address_data(connection, street, house_number, city):
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error inserting address data:", err)
 
-
-def query_update_address_data(connection, address_id, street, house_number, city):
-    try:
-        cursor = connection.cursor()
-        insert_query = "UPDATE address SET street = %s, house_number = %s, city = %s WHERE address_id = %s"
-        cursor.execute(insert_query, (street, house_number, city, address_id))
-        connection.commit()
-        cursor.close()
-        print("Updated address data:", street, house_number, city)
-    except (Exception, psycopg2.DatabaseError) as err:
-        print("Error updating address data:", err)
-        
   
 def json_data_to_db(connection, json_file):
     if not connection:
@@ -147,10 +124,8 @@ def json_data_to_db(connection, json_file):
             
                  
             if station_id:
-                address_id = query_get_address_id(connection)
                 fuel_id = query_get_fuel_id(connection)
                 query_update_fuel_data_record(connection, fuel_id, web_updated_date, diesel, a95)
-                query_update_address_data(connection, address_id, street, house_number, city)
                 query_update_date_for_existing_station_record(connection, company, address)
                 print("UPDAITING done")
             else:
@@ -158,13 +133,11 @@ def json_data_to_db(connection, json_file):
                 query_insert_address_data(connection, street, house_number, city)
                 fuel_id = query_get_fuel_id(connection)
                 address_id = query_get_address_id(connection)
+                print(address_id, fuel_id)
                 query_insert_new_staion_record(connection, company, address, address_id, fuel_id)  
                 print("INSERTING done")
 
-            connection.commit()
-            # except (Exception, psycopg2.DatabaseError) as err:
-            #     print("Error in transaction:", err)
-            #     connection.rollback()               
+            connection.commit() 
         
         print("Successful insert/update data to db")
     except (Exception, psycopg2.DatabaseError, psycopg2.Error, psycopg2.DataError) as err:

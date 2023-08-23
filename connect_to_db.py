@@ -1,16 +1,17 @@
 import psycopg2
+import os
+from dotenv import load_dotenv
 
-
-db_params = {
-    'host': '127.0.0.1',
-    'port': 5432,
-    'database': 'Fuel',
-    'user': 'postgres',
-    'password': 'asdfgh'
-}
-
+load_dotenv(dotenv_path='file.env')
 
 def db_connection():
+    db_params = {
+        'host': os.getenv('DB_HOST'),
+        'port': int(os.getenv('DB_PORT')),
+        'database': os.getenv('DB_DATABASE'),
+        'user': os.getenv('DB_USER'),
+        'password': os.getenv('DB_PASSWORD')
+    }
     try:
         connect = psycopg2.connect(**db_params)
         print(f"Connection to the '{db_params['database']}' database is successful.")
