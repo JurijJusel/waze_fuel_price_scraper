@@ -6,6 +6,69 @@ from connect_to_db import db_connection
 json_file_path = "data/fuel.json"
 connection = db_connection()
 
+
+def query_create_station_table(connection):
+    try:
+        cursor = connection.cursor()
+        station_table_query = """
+        CREATE TABLE stations(
+        station_id SERIAL NOT NULL,
+        station_name character varying(30) NOT NULL,
+        address character varying(40) NOT NULL,
+        created_date timestamp without time zone NOT NULL,
+        updated_date timestamp without time zone,
+        fk_fuel_id integer NOT NULL,
+        fk_address_id integer NOT NULL,
+        PRIMARY KEY(station_id),
+        CONSTRAINT fk_station_fuel FOREIGN key(fk_fuel_id) REFERENCES fuel(fuel_id),
+        CONSTRAINT fk_station_address FOREIGN key(fk_address_id) REFERENCES address(address_id)
+        );"""
+        cursor.execute(station_table_query)
+        connection.commit()
+        cursor.close()
+        print("Table 'stations' created successfull!")
+    except psycopg2.Error as e:
+        print("Error creating 'stations' table:", e)
+
+
+def query_create_fuel_table(connection):
+    try:
+        cursor = connection.cursor()
+        fuel_table_query = """
+        CREATE TABLE fuel(
+        fuel_id SERIAL NOT NULL,
+        web_updated_date timestamp without time zone NOT NULL,
+        diesel numeric NOT NULL,
+        a95 numeric NOT NULL,
+        PRIMARY KEY(fuel_id)
+        );"""
+        cursor.execute(fuel_table_query)
+        connection.commit()
+        cursor.close()
+        print("Table 'fuel' created successfull!")
+    except psycopg2.Error as e:
+        print("Error creating 'fuel' table:", e)
+
+
+def query_create_address_table(connection):
+    try:
+        cursor = connection.cursor()
+        address_table_query = """
+        CREATE TABLE address(
+        address_id SERIAL NOT NULL,
+        street character varying(40) NOT NULL,
+        house_number character varying(10) NOT NULL,
+        city character varying(30) NOT NULL,
+        PRIMARY KEY(address_id)
+         );"""
+        cursor.execute(address_table_query)
+        connection.commit()
+        cursor.close()
+        print("Table 'address' created successfull!")
+    except psycopg2.Error as e:
+        print("Error creating 'address' table:", e)
+        
+        
 def query_existing_station_id(connection, company, address):
     try:
         cursor = connection.cursor()
@@ -47,7 +110,7 @@ def query_insert_new_staion_record(connection, company, address, address_id, fue
 def query_get_fuel_id(connection):
     try:
         cursor = connection.cursor()
-        cursor.execute("SELECT MAX(fuel_id) FROM fuel")  #"SELECT fuel_id FROM fuel" "SELECT MAX(fuel_id) FROM fuel"
+        cursor.execute("SELECT MAX(fuel_id) FROM fuel")  
         fuel_id = cursor.fetchone()[0]
         cursor.close()
         return fuel_id
@@ -58,7 +121,7 @@ def query_get_fuel_id(connection):
 def query_get_address_id(connection):
     try:
         cursor = connection.cursor()
-        cursor.execute("SELECT MAX(address_id) FROM address")  #"SELECT address_id FROM address" "SELECT MAX(address_id) FROM address"
+        cursor.execute("SELECT MAX(address_id) FROM address")  
         address_id = cursor.fetchone()[0]
         cursor.close()
         return address_id
@@ -128,17 +191,15 @@ def json_data_to_db(connection, json_file):
             address = item['address']
             street, house_number, city = split_address(address)
             station_id = query_existing_station_id(connection, company, address)
-            print(station_id)
-            web_updated_date = item['fuel_updated_date']  # fuel table
+            
+            web_updated_date = item['fuel_updated_date']  
             diesel = float(item['diesel']) if item['diesel'] != '-' else 0
             a95 = float(item['95']) if item['95'] != '-' else 0
-            
                  
             if station_id:
                 fuel_id = query_get_fuel_id(connection)
                 query_update_fuel_data_record(connection, fuel_id, web_updated_date, diesel, a95)
                 query_update_date_for_existing_station_record(connection, company, address)
-                print("UPDAITING done")
             else:
                 query_insert_fuel_data_record(connection, web_updated_date, diesel, a95)
                 query_insert_address_data(connection, street, house_number, city)
@@ -146,7 +207,6 @@ def json_data_to_db(connection, json_file):
                 address_id = query_get_address_id(connection)
                 print(address_id, fuel_id)
                 query_insert_new_staion_record(connection, company, address, address_id, fuel_id)  
-                print("INSERTING done")
 
             connection.commit() 
         
@@ -157,80 +217,7 @@ def json_data_to_db(connection, json_file):
         connection.close()
         
         
+query_create_address_table(connection)
+query_create_fuel_table(connection)
+query_create_station_table(connection)
 json_data_to_db(connection, json_file_path)
-
-
-
-
-
-# def query_existing_record_id(connection, company, address):
-#     try:
-#         cursor = connection.cursor()
-#         cursor.execute("SELECT id FROM stations WHERE station_name = %s AND address = %s", (company, address))
-#         record_id = cursor.fetchone()
-#         cursor.close()
-#         return record_id
-#     except (Exception, psycopg2.DatabaseError) as err:
-#         print("Error retrieving existing id:", err)
-#         return None
-
-# def json_data_to_db(connection, json_file):
-#     time_stamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#     if not connection:
-#         return 
-#     try:
-#         cursor = connection.cursor()
-
-#         with open(json_file, 'r') as file:
-#             json_obj = json.load(file)      
-
-#         for item in json_obj:  
-#             company = item['company']
-#             address = item['address']
-#             existing_id = query_existing_record_id(connection, company, address)
-
-#             if existing_id:
-#                 query_update = "UPDATE stations SET updated_date = %s WHERE id = %s"
-#                 updated_date = time_stamp  # datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#                 cursor.execute(query_update, (updated_date, existing_id[0]))
-#             else:
-#                 query_insert = "INSERT INTO stations (station_name, address, created_date) VALUES (%s, %s, %s)"
-#                 created_date = time_stamp  # datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#                 cursor.execute(query_insert, (company, address, created_date))
-
-#             connection.commit()
-            
-#         cursor.close()
-#         connection.close()
-#         print("Successful insert/update data to db.")
-#     except (Exception, psycopg2.DatabaseError) as err:
-#         print("Error insert/update data to PostgreSQL:", err)
-
-# json_data_to_db(connection, json_file_path)
-
-
-# def json-data_to_db(connection, json_file):
-#     if not connection:
-#         return
-#     try:
-#         cursor = connection.cursor()
-
-#         with open(json_file, 'r') as file:
-#             json_obj = json.load(file)      
-
-#         for item in json_obj:  
-#             company = item['company']
-#             address = item['address']
-#             created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-            
-#             insert_query = "INSERT INTO stations (station_name, address, created_date) VALUES (%s, %s, %s)"
-#             data = (company, address, created_date)
-            
-#             cursor.execute(insert_query, data)
-#             connection.commit()
-            
-#         cursor.close()
-#         connection.close()
-#         print("Successful insert data to PostgreSQL")
-#     except (Exception, psycopg2.DatabaseError) as err:
-#         print("Error insert data to PostgreSQL:", err)
