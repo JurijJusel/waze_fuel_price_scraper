@@ -2,7 +2,7 @@ import psycopg2
 import os
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path='file.env')
+load_dotenv(dotenv_path='.env')
 
 def db_connection():
     db_params = {
