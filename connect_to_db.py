@@ -17,5 +17,5 @@ def db_connection():
         print(f"Connection to the '{db_params['database']}' database is successful.")
         return connect
     except (Exception, psycopg2.DatabaseError) as err:
-        print(f"Error connecting to '{db_params['database']}' database PostgreSQL:", err)
+        print(f"Error connecting to '{db_params['database']}' database:", err)
 
