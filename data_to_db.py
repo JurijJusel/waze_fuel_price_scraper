@@ -6,6 +6,11 @@ from connect_to_db import db_connection
 json_file_path = "data/fuel.json"
 connection = db_connection()
 
+def query_table_exists(cursor, table_name):
+    query_table = f"SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = '{table_name}')"
+    cursor.execute(query_table)
+    return cursor.fetchone()[0]
+
 
 def query_create_station_table(connection):
     try:
@@ -117,6 +122,7 @@ def query_get_fuel_id(connection):
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error getting inserted fuel_id:", err)
         return None
+    
 
 def query_get_address_id(connection):
     try:
@@ -215,9 +221,19 @@ def json_data_to_db(connection, json_file):
         print("Error data_to_db insert/update data to PostgreSQL:", err)
     finally:
         connection.close()
+   
         
+def run_create_tables(connection): 
+    try:  
+        cursor = connection.cursor()
+        if not query_table_exists(cursor, 'address') or not query_table_exists(cursor, 'fuel') or not query_table_exists(cursor, 'stations'):
+            query_create_address_table(connection)
+            query_create_fuel_table(connection)
+            query_create_station_table(connection)
+        else:
+            print("Tables already exist.")
+    except Exception as e:
+        print("An error create tables occurred:", e)
         
-query_create_address_table(connection)
-query_create_fuel_table(connection)
-query_create_station_table(connection)
+run_create_tables(connection)   
 json_data_to_db(connection, json_file_path)
