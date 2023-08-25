@@ -2,7 +2,7 @@ import psycopg2
 import os
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path='.env')
+load_dotenv(dotenv_path='.env') 
 
 
 def db_connection():
@@ -22,7 +22,7 @@ def db_connection():
         if "not translate host name" in error_message:
             print("Failed to connect: Invalid host name")
         if "does not exist" in error_message:
-            print("Wrong database name !!!!!!!!!!!!!!!!!!!")
+            print("Wrong database name")
         elif "password authentication failed" in  error_message:
             print("Failed to connect: wrong user name or password")
         else:
