@@ -6,10 +6,19 @@ from connect_to_db import db_connection
 json_file_path = "data/fuel.json"
 connection = db_connection()
 
-def query_table_exists(cursor, table_name):
-    query_table = f"SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = '{table_name}')"
-    cursor.execute(query_table)
-    return cursor.fetchone()[0]
+
+def query_existing_tables(cursor):
+    cursor = connection.cursor()
+    query = """
+        SELECT table_name 
+        FROM information_schema.tables 
+        WHERE table_catalog = 'Fuel'
+        AND table_schema = 'public'
+    """
+    cursor.execute(query)
+    existing_tables = [row[0] for row in cursor.fetchall()]
+    cursor.close()
+    return existing_tables
 
 
 def query_create_station_table(connection):
@@ -226,14 +235,26 @@ def json_data_to_db(connection, json_file):
 def run_create_tables(connection): 
     try:  
         cursor = connection.cursor()
-        if not query_table_exists(cursor, 'address') or not query_table_exists(cursor, 'fuel') or not query_table_exists(cursor, 'stations'):
-            query_create_address_table(connection)
+        existing_tables = query_existing_tables(cursor)
+
+        if 'address' not in existing_tables:
+             query_create_address_table(connection)
+        if 'fuel' not in existing_tables:
             query_create_fuel_table(connection)
+        if 'stations' not in existing_tables:
             query_create_station_table(connection)
         else:
             print("Tables already exist.")
     except Exception as e:
         print("An error create tables occurred:", e)
+    finally:
+        cursor.close()
         
-run_create_tables(connection)   
-json_data_to_db(connection, json_file_path)
+run_create_tables(connection)
+# json_data_to_db(connection, json_file_path)
+
+# print(query_table_exists(connection, ['fuel', 'stations']))
+
+# print(query_existing_tables(connection))
+
+# print(query_existing_tables(connection))
