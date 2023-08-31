@@ -2,11 +2,19 @@ import psycopg2
 import json
 from datetime import datetime
 from connect_to_db import db_connection
+from utils.file import create_json, read_json
 
 json_file_path = "data/fuel.json"
 connection = db_connection()
 
 
+def check_tables_in_migration():
+    migration_data = read_json('migration.json')
+    table_names = [name.get("table_name") for name in migration_data]
+    unique_table_names = list(set(table_names))
+    return unique_table_names
+  
+    
 def query_existing_tables(cursor):
     cursor = connection.cursor()
     query = """
@@ -21,7 +29,7 @@ def query_existing_tables(cursor):
     return existing_tables
 
 
-def query_create_station_table(connection):
+def query_create_stations_table(connection):
     try:
         cursor = connection.cursor()
         station_table_query = """
@@ -40,9 +48,12 @@ def query_create_station_table(connection):
         cursor.execute(station_table_query)
         connection.commit()
         cursor.close()
+        created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        data = [{'created_date': created_date, 'table_name': 'stations', 'table_query': station_table_query}]
+        create_json(data, 'migration.json')
         print("Table 'stations' created successfull!")
-    except psycopg2.Error as e:
-        print("Error creating 'stations' table:", e)
+    except psycopg2.Error as err:
+        print("Error creating 'stations' table:", err)
 
 
 def query_create_fuel_table(connection):
@@ -59,9 +70,12 @@ def query_create_fuel_table(connection):
         cursor.execute(fuel_table_query)
         connection.commit()
         cursor.close()
+        created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        data = [{'created_date': created_date, 'table_name': 'fuel', 'table_query': fuel_table_query}]
+        create_json(data, 'migration.json')
         print("Table 'fuel' created successfull!")
-    except psycopg2.Error as e:
-        print("Error creating 'fuel' table:", e)
+    except psycopg2.Error as err:
+        print("Error creating 'fuel' table:", err)
 
 
 def query_create_address_table(connection):
@@ -78,9 +92,12 @@ def query_create_address_table(connection):
         cursor.execute(address_table_query)
         connection.commit()
         cursor.close()
+        created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        data = [{'created_date': created_date, 'table_name': 'address', 'table_query': address_table_query}]
+        create_json(data, 'migration.json')
         print("Table 'address' created successfull!")
-    except psycopg2.Error as e:
-        print("Error creating 'address' table:", e)
+    except psycopg2.Error as err:
+        print("Error creating 'address' table:", err)
         
         
 def query_existing_station_id(connection, company, address):
@@ -220,11 +237,9 @@ def json_data_to_db(connection, json_file):
                 query_insert_address_data(connection, street, house_number, city)
                 fuel_id = query_get_fuel_id(connection)
                 address_id = query_get_address_id(connection)
-                print(address_id, fuel_id)
                 query_insert_new_staion_record(connection, company, address, address_id, fuel_id)  
 
-            connection.commit() 
-        
+            connection.commit()       
         print("Successful insert/update data to db")
     except (Exception, psycopg2.DatabaseError, psycopg2.Error, psycopg2.DataError) as err:
         print("Error data_to_db insert/update data to PostgreSQL:", err)
@@ -236,25 +251,31 @@ def run_create_tables(connection):
     try:  
         cursor = connection.cursor()
         existing_tables = query_existing_tables(cursor)
-
-        if 'address' not in existing_tables:
-             query_create_address_table(connection)
-        if 'fuel' not in existing_tables:
+        migration_tables = check_tables_in_migration()
+        if migration_tables is None:
+            migration_tables = check_tables_in_migration()
+        if not migration_tables:
+            query_create_address_table(connection)
             query_create_fuel_table(connection)
-        if 'stations' not in existing_tables:
-            query_create_station_table(connection)
-        else:
-            print("Tables already exist.")
+            query_create_stations_table(connection)
+        else:    
+            for table_name in migration_tables:
+                if table_name not in existing_tables:
+                    function_name = f"query_create_{table_name}_table"
+                    create_function = globals().get(function_name)
+                    create_function(connection)
+                else:
+                    print(f"Table '{table_name}' already exist.")
     except Exception as e:
         print("An error create tables occurred:", e)
     finally:
         cursor.close()
+
         
-run_create_tables(connection)
-# json_data_to_db(connection, json_file_path)
-
-# print(query_table_exists(connection, ['fuel', 'stations']))
-
-# print(query_existing_tables(connection))
-
-# print(query_existing_tables(connection))
+create_tables = run_create_tables(connection)
+if create_tables:  
+    json_data_to_db(connection, json_file_path)
+else:
+    create_tables = run_create_tables(connection)
+    json_data_to_db(connection, json_file_path)
+    
