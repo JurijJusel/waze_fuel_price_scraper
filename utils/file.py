@@ -30,12 +30,15 @@ def create_json(new_data, json_file):
 def read_json(json_file):
     path = Path(f"data/{json_file}")
     try:
-        with open(path, "r", encoding='utf-8') as file:
-            json_obj = json.load(file)
-            return json_obj
-    except (json.JSONDecodeError, FileNotFoundError):
-        existing_data = []
-    
-    if not existing_data:
-        with open(path, 'w', encoding='utf-8') as json_file:
-            json.dump(existing_data, json_file)
+        with open(path, 'r') as file:
+            data = file.read()
+            if data:
+                return json.loads(data)
+            else:
+                return []
+    except FileNotFoundError:
+        print(f"File '{json_file}' not found.")
+        return []
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON in file '{json_file}'.")
+        return []
