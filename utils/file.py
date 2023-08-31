@@ -25,4 +25,17 @@ def create_json(new_data, json_file):
                 return f'Created <{json_file}> file and data written to it'
             else:
                 return f'Created <{json_file}> file, data list is empty!!!'
+
+
+def read_json(json_file):
+    path = Path(f"data/{json_file}")
+    try:
+        with open(path, "r", encoding='utf-8') as file:
+            json_obj = json.load(file)
+            return json_obj
+    except (json.JSONDecodeError, FileNotFoundError):
+        existing_data = []
     
+    if not existing_data:
+        with open(path, 'w', encoding='utf-8') as json_file:
+            json.dump(existing_data, json_file)
