@@ -29,4 +29,3 @@ def db_connection():
             print(f"Failed connecting to the database: {error_message}")
     except Exception as err:
         print(f"An error connecting to the database:", err)
-    
