@@ -11,7 +11,7 @@ connection = db_connection()
 def check_tables_in_migration():
     migration_data = read_json('migration.json')
     table_names = [name.get("table_name") for name in migration_data]
-    unique_table_names = list(set(table_names))
+    unique_table_names = sorted(list(set(table_names)))
     return unique_table_names
   
     
@@ -255,8 +255,8 @@ def run_create_tables(connection):
         if migration_tables is None:
             migration_tables = check_tables_in_migration()
         if not migration_tables:
-            query_create_address_table(connection)
             query_create_fuel_table(connection)
+            query_create_address_table(connection)
             query_create_stations_table(connection)
         else:    
             for table_name in migration_tables:
@@ -271,11 +271,8 @@ def run_create_tables(connection):
     finally:
         cursor.close()
 
-        
-create_tables = run_create_tables(connection)
-if create_tables:  
-    json_data_to_db(connection, json_file_path)
-else:
-    create_tables = run_create_tables(connection)
-    json_data_to_db(connection, json_file_path)
+
     
+run_create_tables(connection)
+json_data_to_db(connection, json_file_path)
+
