@@ -5,8 +5,7 @@ from station import Station
 from utils.file import create_json
 from logs import Script_log
  
-response_log = Script_log()
-content_log = Script_log()
+script_log = Script_log()
 name = 'Baltic_Petroleum'
 json_file_path = 'data/fuel.json'
 url = 'https://gas.didnt.work/?country=lt&brand=Baltic+Petroleum&city=Vilnius'
@@ -17,15 +16,15 @@ def download_response(url):
         req = requests.get(url, headers=headers)
         if req.ok:
             req_status = req.status_code
-            response_log.write_log(name, f"status code: {req_status}")
+            script_log.write_log(name, f"status code: {req_status}")
             soup = BeautifulSoup(req.content, features="lxml")
             return soup
         else:
             req_status = req.status_code
-            response_log.write_log(name, f"status code: {req_status}")
+            script_log.write_log(name, f"status code: {req_status}")
             return None
     except (Exception, ConnectionError) as e: 
-        response_log.write_log(name, f"download_responce: {e}")
+        script_log.write_log(name, f"download_responce: {e}")
         return None
 
 
@@ -44,7 +43,7 @@ def get_baltic_petroleum_data(soup):
             name_A95 = table_row.select("td[data-id]")[1]["data-id"].split("-")[-1]
             price_A95 = table_row.select("td[data-id]")[1].text
         except (AttributeError, IndexError) as err:
-            content_log.write_log(name, f"attribute_error in def get_circle_data: {err}")  
+            script_log.write_log(name, f"attribute_error in def get_circle_data: {err}")  
             return None
         
         station = Station(company, address, fuel_updated_date, name_D, price_D, name_A95, price_A95)
@@ -60,4 +59,4 @@ if response:
     result_json = create_json(data, json_file_path)
     print(result_json)                 
 else:
-    response_log.write_log(name, f"the request failed")
+    script_log.write_log(name, f"the request failed")
