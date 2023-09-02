@@ -252,8 +252,6 @@ def run_create_tables(connection):
         cursor = connection.cursor()
         existing_tables = query_existing_tables(cursor)
         migration_tables = check_tables_in_migration()
-        if migration_tables is None:
-            migration_tables = check_tables_in_migration()
         if not migration_tables:
             query_create_fuel_table(connection)
             query_create_address_table(connection)
@@ -272,7 +270,6 @@ def run_create_tables(connection):
         cursor.close()
 
 
-    
 run_create_tables(connection)
 json_data_to_db(connection, json_file_path)
 
