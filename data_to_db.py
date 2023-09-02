@@ -4,12 +4,13 @@ from datetime import datetime
 from connect_to_db import db_connection
 from utils.file import create_json, read_json
 
-json_file_path = "data/fuel.json"
+json_fuel_file_path = 'data/fuel.json'
 connection = db_connection()
+json_migration_file_path = 'migration/migration.json'
 
 
 def check_tables_in_migration():
-    migration_data = read_json('migration.json')
+    migration_data = read_json(json_migration_file_path)
     table_names = [name.get("table_name") for name in migration_data]
     unique_table_names = sorted(list(set(table_names)))
     return unique_table_names
@@ -50,7 +51,7 @@ def query_create_stations_table(connection):
         cursor.close()
         created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         data = [{'created_date': created_date, 'table_name': 'stations', 'table_query': station_table_query}]
-        create_json(data, 'migration.json')
+        create_json(data, json_migration_file_path)
         print("Table 'stations' created successfull!")
     except psycopg2.Error as err:
         print("Error creating 'stations' table:", err)
@@ -72,7 +73,7 @@ def query_create_fuel_table(connection):
         cursor.close()
         created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         data = [{'created_date': created_date, 'table_name': 'fuel', 'table_query': fuel_table_query}]
-        create_json(data, 'migration.json')
+        create_json(data, json_migration_file_path)
         print("Table 'fuel' created successfull!")
     except psycopg2.Error as err:
         print("Error creating 'fuel' table:", err)
@@ -94,7 +95,7 @@ def query_create_address_table(connection):
         cursor.close()
         created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         data = [{'created_date': created_date, 'table_name': 'address', 'table_query': address_table_query}]
-        create_json(data, 'migration.json')
+        create_json(data, json_migration_file_path)
         print("Table 'address' created successfull!")
     except psycopg2.Error as err:
         print("Error creating 'address' table:", err)
@@ -271,5 +272,5 @@ def run_create_tables(connection):
 
 
 run_create_tables(connection)
-json_data_to_db(connection, json_file_path)
+json_data_to_db(connection, json_fuel_file_path)
 
