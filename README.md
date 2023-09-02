@@ -1,4 +1,4 @@
-## www.glassdoor.com crawler app
+## Fuel crawler app
 
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
@@ -20,13 +20,14 @@
 
 ## General Information
 
-- Scraping company info United States
+- Scraping 'https://gas.didnt.work' fuel A95 and diesel prices from Vilnius city.
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 ## Technologies Used
 
 - Python 3.x.x
+- requests
 - BeautifulSoup
 - PostgreSQL
 - Async technics
