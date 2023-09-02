@@ -25,4 +25,20 @@ def create_json(new_data, json_file):
                 return f'Created <{json_file}> file and data written to it'
             else:
                 return f'Created <{json_file}> file, data list is empty!!!'
-    
+
+
+def read_json(json_file):  # open json file if file empty, output file with []
+    path = Path(f"data/{json_file}")
+    try:
+        with open(path, 'r') as file:
+            data = file.read()
+            if data:
+                return json.loads(data)
+            else:
+                return []
+    except FileNotFoundError:
+        print(f"File '{json_file}' not found.")
+        return []
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON in file '{json_file}'.")
+        return []
