@@ -27,7 +27,7 @@ def create_json(new_data, json_file):
                 return f'Created <{json_file}> file, data list is empty!!!'
 
 
-def read_json(json_file):
+def read_json(json_file):  # open json file if file empty, output file with []
     path = Path(f"data/{json_file}")
     try:
         with open(path, 'r') as file:
