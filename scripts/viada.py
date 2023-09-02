@@ -8,7 +8,7 @@ from logs import Script_log
 response_log = Script_log()
 content_log = Script_log()
 name = 'Viada'
-json_file = 'fuel.json'
+json_file_path = 'data/fuel.json'
 url = 'https://gas.didnt.work/?country=lt&brand=Viada&city=Vilnius'
 
 
@@ -57,7 +57,7 @@ def get_viada_data(soup):
 response = download_response(url)
 if response:
     data = get_viada_data(response)
-    result_json = create_json(data, json_file)
+    result_json = create_json(data, json_file_path)
     print(result_json)                 
 else:
     response_log.write_log(name, f"the request failed")
