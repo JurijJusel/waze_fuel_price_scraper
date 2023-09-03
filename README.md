@@ -1,26 +1,19 @@
-## Fuel crawler app
+## Fuel prices crawler app
 
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
-
+- From 'https://gas.didnt.work/?country=lt&brand=&city=Vilnius' fuel A95 and diesel prices from Vilnius city.
 ## Table of Contents
 
-- [www.glassdoor.com crawler app](#wwwglassdoorcom-crawler-app)
+- [Fuel prices crawler app](#Fuel-prices-crawler-app)
 - [Table of Contents](#table-of-contents)
 - [General Information](#general-information)
 - [Technologies Used](#technologies-used)
-- [Features](#features)
 - [Screenshots](#screenshots)
 - [Setup](#setup)
 - [Usage](#usage)
-- [Project Status](#project-status)
-- [Room for Improvement](#room-for-improvement)
-- [Acknowledgements](#acknowledgements)
-- [Contact](#contact)
-<!-- * [License](#license) -->
 
 ## General Information
 
-- Scraping 'https://gas.didnt.work' fuel A95 and diesel prices from Vilnius city.
+This project uses [PostgreSQL](#https://www.postgresql.org/), so, in order to make it working, install in your local machine or use Docker.
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
@@ -32,12 +25,6 @@
 - PostgreSQL
 - Async technics
 - Docker
-
-## Features
-
-List the ready features here:
-
-- Queries get company information and jobs offers
 
 ## Screenshots
 
@@ -57,35 +44,3 @@ How does one go about using it?
 Provide various use cases and code examples here.
 
 `write-your-code-here`
-
-## Project Status
-
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
-
-## Room for Improvement
-
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-
-- Improvement to be done 1
-
-To do:
-
-- Feature to be added 1
-
-## Acknowledgements
-
-Give credit here.
-
-- This project was inspired by...
-
-## Contact
-
-Created by
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
