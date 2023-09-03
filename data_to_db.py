@@ -3,10 +3,18 @@ import json
 from datetime import datetime
 from connect_to_db import db_connection
 from utils.file import create_json, read_json
+import os
+from dotenv import load_dotenv
 
 json_fuel_file_path = 'data/fuel.json'
 connection = db_connection()
 json_migration_file_path = 'migration/migration.json'
+
+
+def get_database_name():
+    load_dotenv(dotenv_path='.env') 
+    database_name = os.getenv('DATABASE_NAME')
+    return database_name
 
 
 def check_tables_in_migration():
@@ -18,14 +26,15 @@ def check_tables_in_migration():
     
 def query_existing_tables(cursor):
     cursor = connection.cursor()
-    query = """
+    query = f"""
         SELECT table_name 
         FROM information_schema.tables 
-        WHERE table_catalog = 'Fuel'
+        WHERE table_catalog = '{get_database_name()}'
         AND table_schema = 'public'
     """
     cursor.execute(query)
     existing_tables = [row[0] for row in cursor.fetchall()]
+    print('existing_tables', existing_tables)
     cursor.close()
     return existing_tables
 
@@ -50,7 +59,7 @@ def query_create_stations_table(connection):
         connection.commit()
         cursor.close()
         created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        data = [{'created_date': created_date, 'table_name': 'stations', 'table_query': station_table_query}]
+        data = [{'created_date': created_date, 'database_name': get_database_name(), 'table_name': 'stations', 'table_query': station_table_query}]
         create_json(data, json_migration_file_path)
         print("Table 'stations' created successfull!")
     except psycopg2.Error as err:
@@ -72,7 +81,7 @@ def query_create_fuel_table(connection):
         connection.commit()
         cursor.close()
         created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        data = [{'created_date': created_date, 'table_name': 'fuel', 'table_query': fuel_table_query}]
+        data = [{'created_date': created_date, 'database_name': get_database_name(), 'table_name': 'fuel', 'table_query': fuel_table_query}]
         create_json(data, json_migration_file_path)
         print("Table 'fuel' created successfull!")
     except psycopg2.Error as err:
@@ -94,7 +103,7 @@ def query_create_address_table(connection):
         connection.commit()
         cursor.close()
         created_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        data = [{'created_date': created_date, 'table_name': 'address', 'table_query': address_table_query}]
+        data = [{'created_date': created_date, 'database_name': get_database_name(), 'table_name': 'address', 'table_query': address_table_query}]
         create_json(data, json_migration_file_path)
         print("Table 'address' created successfull!")
     except psycopg2.Error as err:
@@ -267,10 +276,7 @@ def run_create_tables(connection):
                     print(f"Table '{table_name}' already exist.")
     except Exception as e:
         print("An error create tables occurred:", e)
-    finally:
-        cursor.close()
 
 
 run_create_tables(connection)
 json_data_to_db(connection, json_fuel_file_path)
-
