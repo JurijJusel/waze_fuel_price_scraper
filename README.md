@@ -33,6 +33,8 @@ This project uses [PostgreSQL](https://www.postgresql.org/), so, in order to mak
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 ## Setup
+
+First step cloning project.
 After cloning this project, do this steps.
 
 Create .env file and put your project credentials
@@ -43,19 +45,17 @@ DATABASE_PASSWORD = <database-password>
 DATABASE_HOST =<host>
 DATABASE_PORT = <database_port></database_port>
 ```
-
 Create virtual environment and activated:
 ```
 pip install virtualenv 
 python -m venv <name_venv>
 source <name_venv>/bin/activate
 ```
-
 Install dependencies:
-
 ```
 pip install -r requirements.txt
 ```
+
 
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
