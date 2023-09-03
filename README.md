@@ -13,7 +13,7 @@
 
 ## General Information
 
-This project uses - [PostgreSQL](https://www.postgresql.org/), so, in order to make it working, install in your local machine or use Docker.
+This project uses [PostgreSQL](https://www.postgresql.org/), so, in order to make it working, install in your local machine or use Docker.
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
@@ -33,6 +33,29 @@ This project uses - [PostgreSQL](https://www.postgresql.org/), so, in order to m
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 ## Setup
+After cloning this project, do this steps.
+
+Create .env file and put your project credentials
+```
+DATABASE_NAME = <database-name>
+DATABASE_USER = <database-user>
+DATABASE_PASSWORD = <database-password>
+DATABASE_HOST =<host>
+DATABASE_PORT = <database_port></database_port>
+```
+
+Create virtual environment and activated:
+```
+pip install virtualenv 
+python -m venv <name_venv>
+source <name_venv>/bin/activate
+```
+
+Install dependencies:
+```
+
+pip install -r requirements.txt
+```
 
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
