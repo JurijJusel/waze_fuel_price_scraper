@@ -52,8 +52,8 @@ source <name_venv>/bin/activate
 ```
 
 Install dependencies:
-```
 
+```
 pip install -r requirements.txt
 ```
 
