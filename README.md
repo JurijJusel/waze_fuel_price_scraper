@@ -13,7 +13,7 @@
 
 ## General Information
 
-This project uses [PostgreSQL](#https://www.postgresql.org/), so, in order to make it working, install in your local machine or use Docker.
+This project uses - [PostgreSQL](#'https://www.postgresql.org/'), so, in order to make it working, install in your local machine or use Docker.
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
