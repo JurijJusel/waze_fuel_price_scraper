@@ -13,7 +13,7 @@
 
 ## General Information
 
-This project uses [PostgreSQL](https://www.postgresql.org/), so, in order to make it working, install in your local machine or use Docker.
+This project uses [PostgreSQL](https://www.postgresql.org/), so, in order to make it working, install in your local machine or use Docker. Create a database named 'Fuel'.
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
@@ -34,24 +34,24 @@ This project uses [PostgreSQL](https://www.postgresql.org/), so, in order to mak
 
 ## Setup
 
-First step cloning project.
-After cloning this project, do this steps.
+- First step cloning project.
+- After cloning this project, do this steps.
 
-Create .env file and put your project credentials
+- Create .env file and put your project credentials
 ```
-DATABASE_NAME = <database-name>
-DATABASE_USER = <database-user>
+DATABASE_HOST = '127.0.0.1'
+DATABASE_PORT = 5432  # Default PostgreSQL port
+DATABASE_NAME = 'Fuel'
+DATABASE_USER = 'postgres' 
 DATABASE_PASSWORD = <database-password>
-DATABASE_HOST =<host>
-DATABASE_PORT = <database_port></database_port>
 ```
-Create virtual environment and activated:
+- Create virtual environment and activated:
 ```
 pip install virtualenv 
 python -m venv <name_venv>
 source <name_venv>/bin/activate
 ```
-Install dependencies:
+- Install dependencies:
 ```
 pip install -r requirements.txt
 ```
