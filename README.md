@@ -55,7 +55,10 @@ source <name_venv>/bin/activate
 ```
 pip install -r requirements.txt
 ```
-
+- To run programm write in terminal
+'''
+"python3 app.py"
+'''
 
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
