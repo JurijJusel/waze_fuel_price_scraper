@@ -34,7 +34,6 @@ def query_existing_tables(cursor):
     """
     cursor.execute(query)
     existing_tables = [row[0] for row in cursor.fetchall()]
-    print('existing_tables', existing_tables)
     cursor.close()
     return existing_tables
 

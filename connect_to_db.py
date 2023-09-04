@@ -7,11 +7,11 @@ load_dotenv(dotenv_path='.env')
 
 def db_connection():
     db_params = {
-        'host': os.getenv('DB_HOST'),
-        'port': int(os.getenv('DB_PORT')),
-        'database': os.getenv('DB_DATABASE'),
-        'user': os.getenv('DB_USER'),
-        'password': os.getenv('DB_PASSWORD')
+        'host': os.getenv('DATABASE_HOST'),
+        'port': int(os.getenv('DATABASE_PORT')),
+        'database': os.getenv('DATABASE_NAME'),
+        'user': os.getenv('DATABASE_USER'),
+        'password': os.getenv('DATABASE_PASSWORD')
     }
     try:
         connect = psycopg2.connect(**db_params)
