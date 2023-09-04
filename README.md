@@ -1,6 +1,8 @@
 ## Fuel prices crawler app
 
 - From 'https://gas.didnt.work/?country=lt&brand=&city=Vilnius' fuel A95 and diesel prices from Vilnius city.
+This page displays gas stations and their fuel prices that users have entered in the Waze app over the past three days. Prices are supported by Waze community users and is not responsible for the accuracy of prices.
+
 ## Table of Contents
 
 - [Fuel prices crawler app](#Fuel-prices-crawler-app)
