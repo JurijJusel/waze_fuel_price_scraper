@@ -1,0 +1,17 @@
+[
+  {
+    "created_date": "2023-09-02 21:38:29",
+    "table_name": "fuel",
+    "table_query": "\n        CREATE TABLE fuel(\n        fuel_id SERIAL NOT NULL,\n        web_updated_date timestamp without time zone NOT NULL,\n        diesel numeric NOT NULL,\n        a95 numeric NOT NULL,\n        PRIMARY KEY(fuel_id)\n        );"
+  },
+  {
+    "created_date": "2023-09-02 21:38:29",
+    "table_name": "address",
+    "table_query": "\n        CREATE TABLE address(\n        address_id SERIAL NOT NULL,\n        street character varying(40) NOT NULL,\n        house_number character varying(10) NOT NULL,\n        city character varying(30) NOT NULL,\n        PRIMARY KEY(address_id)\n         );"
+  },
+  {
+    "created_date": "2023-09-02 21:38:29",
+    "table_name": "stations",
+    "table_query": "\n        CREATE TABLE stations(\n        station_id SERIAL NOT NULL,\n        station_name character varying(30) NOT NULL,\n        address character varying(40) NOT NULL,\n        created_date timestamp without time zone NOT NULL,\n        updated_date timestamp without time zone,\n        fk_fuel_id integer NOT NULL,\n        fk_address_id integer NOT NULL,\n        PRIMARY KEY(station_id),\n        CONSTRAINT fk_station_fuel FOREIGN key(fk_fuel_id) REFERENCES fuel(fuel_id),\n        CONSTRAINT fk_station_address FOREIGN key(fk_address_id) REFERENCES address(address_id)\n        );"
+  }
+]
