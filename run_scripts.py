@@ -20,7 +20,7 @@ class Scripts:
                     self.count += 1
                     self.executed_files.append(script_file)   
     
-    def print_scripts(self):             
+    def print_scripts(self):     #TODO galetum sita funkcija ideti i run_scripts pati gala,tada jos nereiktu app.py faile        
         print(f"Number of executed files : {self.count}")
         print("Executed files:", self.executed_files)
         print("Unexecuted files from scripts folder:", [file for file in self.all_script_files if file not in self.executed_files])

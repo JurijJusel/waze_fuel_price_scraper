@@ -6,7 +6,7 @@ load_dotenv(dotenv_path='.env')
 
 
 def db_connection():
-    db_params = {
+    db_params = {#TODO tegu db_params virs funkcijos buna,funkcija priema toki parametra kaip db_params
         'host': os.getenv('DATABASE_HOST'),
         'port': int(os.getenv('DATABASE_PORT')),
         'database': os.getenv('DATABASE_NAME'),
