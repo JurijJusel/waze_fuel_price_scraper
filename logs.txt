@@ -1,0 +1,59 @@
+2023-09-07 20:55:34, Viada, status code: 200
+2023-09-07 20:55:34, Neste, status code: 200
+2023-09-07 21:01:42, Viada, status code: 200
+2023-09-07 21:01:42, Neste, status code: 200
+2023-09-07 21:02:54, Viada, status code: 200
+2023-09-07 21:02:54, Neste, status code: 200
+2023-09-07 21:03:29, Viada, status code: 200
+2023-09-07 21:03:29, Neste, status code: 200
+2023-09-07 21:04:01, Viada, status code: 200
+2023-09-07 21:04:02, Neste, status code: 200
+2023-09-07 21:05:03, Viada, status code: 200
+2023-09-07 21:05:04, Neste, status code: 200
+2023-09-07 21:09:33, Viada, status code: 200
+2023-09-07 21:09:33, Neste, status code: 200
+2023-09-07 21:26:27, Viada, status code: 200
+2023-09-07 21:26:27, Viada, response succuseful
+2023-09-07 21:26:28, Neste, status code: 200
+2023-09-07 21:32:50, Viada, status code: 200
+2023-09-07 21:32:50, Viada, response successful
+2023-09-07 21:32:50, Neste, status code: 200
+2023-09-07 21:35:48, Viada, status code: 200
+2023-09-07 21:35:48, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 21:35:49, Neste, status code: 200
+2023-09-07 21:44:14, Viada, status code: 200
+2023-09-07 21:44:14, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 21:44:15, Neste, status code: 200
+2023-09-07 21:46:36, Viada, status code: 200
+2023-09-07 21:46:36, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 21:46:36, Neste, status code: 200
+2023-09-07 21:52:47, Viada, status code: 200
+2023-09-07 21:52:47, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 21:52:47, Neste, status code: 200
+2023-09-07 22:01:13, Viada, status code: 200
+2023-09-07 22:01:13, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 22:01:13, Neste, status code: 200
+2023-09-07 22:02:05, Viada, status code: 200
+2023-09-07 22:02:06, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 22:02:06, Neste, status code: 200
+2023-09-07 22:02:39, Viada, status code: 200
+2023-09-07 22:02:39, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 22:02:39, Neste, status code: 200
+2023-09-07 22:02:58, Viada, status code: 200
+2023-09-07 22:02:58, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 22:02:58, Neste, status code: 200
+2023-09-07 22:03:48, Viada, status code: 200
+2023-09-07 22:03:49, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 22:03:49, Neste, status code: 200
+2023-09-07 22:10:55, Viada, status code: 200
+2023-09-07 22:10:55, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 22:10:55, Neste, status code: 200
+2023-09-07 22:11:30, Viada, status code: 200
+2023-09-07 22:11:30, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 22:11:31, Neste, status code: 200
+2023-09-07 22:11:47, Viada, status code: 200
+2023-09-07 22:11:47, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 22:11:47, Neste, status code: 200
+2023-09-07 22:12:09, Viada, status code: 200
+2023-09-07 22:12:09, Viada, The data is added to the file <data/fuel.json>
+2023-09-07 22:12:09, Neste, status code: 200
