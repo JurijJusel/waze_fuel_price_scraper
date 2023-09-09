@@ -1,13 +1,13 @@
 import psycopg2
 import json
 from datetime import datetime
-from connect_to_db import db_connection
+from connect_to_db import db_connection, db_params
 from utils.file import create_json, read_json
 import os
 from dotenv import load_dotenv
 
-json_fuel_file_path = 'data/fuel.json' #TODO jau tokia eilute kartojasi nevienam faile gal geriau i contantas imesk ir tiesiog importuokis cionais ta value
-connection = db_connection()
+
+connection = db_connection(db_params)
 json_migration_file_path = 'migration/migration.json'
 
 
@@ -156,7 +156,6 @@ def query_get_fuel_id(connection):
         return fuel_id
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error getting inserted fuel_id:", err)
-        return None #TODO kodel cia returnini kitur return nedejai!
     
 
 def query_get_address_id(connection):
@@ -168,7 +167,6 @@ def query_get_address_id(connection):
         return address_id
     except (Exception, psycopg2.DatabaseError) as err:
         print("Error getting inserted address_id:", err)
-        return None
 
     
 def query_insert_fuel_data_record(connection, web_updated_date, diesel, a95):
@@ -275,7 +273,3 @@ def run_create_tables(connection):
                     print(f"Table '{table_name}' already exist.")
     except Exception as e:
         print("An error create tables occurred:", e)
-
-
-run_create_tables(connection)
-json_data_to_db(connection, json_fuel_file_path)#TODO sitas failas neturetu but atskirai aktyvuojamas,realiai paleidi app.py ir tie queries suveikia
