@@ -1,31 +1,29 @@
 import requests
 from bs4 import BeautifulSoup
-from constants import headers
+from constants import headers, url, json_fuel_file_path
 from station import Station
 from utils.file import create_json
-from logs import Script_log
+from script_logs import Script_log
 
 script_log = Script_log()
-name = 'Viada'
-json_file_path = 'data/fuel.json'
-url = 'https://gas.didnt.work/?country=lt&brand=Viada&city=Vilnius'#TODO url globalus,bet kiekviename scripte atskiri field yra kur idedi i url degalines pavadinimas ir miestas
+company_name = 'Viada'
+city = 'Vilnius'
+params = {'brand': company_name, 'city': city}
 
 
-def download_response(url):
+def download_response(url, params): 
     try:
         req = requests.get(url, headers=headers)
         if req.ok:
-            req_status = req.status_code
-            script_log.write_log(name, f"status code: {req_status}")#TODO gal geriau pries return daryt nes jei line 20 uzlus tada tavo status_code failed o tu jau saugai kaip teigiama
             soup = BeautifulSoup(req.content, features="lxml")
+            script_log.write_log(company_name, f"status code: {req.status_code}")
             return soup
         else:
-            req_status = req.status_code #TODO nebutina kintamajam priskirti,tu ji realiai tikvienoje vietoje panaudoji,viena eilute maizau kodo bus
-            script_log.write_log(name, f"status code: {req_status}")
+            script_log.write_log(company_name, f"status code: {req.status_code}")
             return None
     except (Exception, ConnectionError) as e: 
-        script_log.write_log(name, f"download_responce: {e}")
-        return None #TODO jei pagauni error gal geriau grazink kaip koki msg ar boolean
+        script_log.write_log(company_name, f"download_responce: {e}")
+        print(company_name, f"download_responce error: {e}")
 
 
 def get_viada_data(soup):
@@ -43,9 +41,8 @@ def get_viada_data(soup):
             name_A95 = table_row.select("td[data-id]")[1]["data-id"].split("-")[-1]
             price_A95 = table_row.select("td[data-id]")[1].text
         except (AttributeError, IndexError) as err:
-            script_log.write_log(name, f"error in def get_circle_data: {err}")          
-            return None #TODO cia nereik to return
-        
+            script_log.write_log(company_name, f"error in def get_circle_data: {err}")          
+
         station = Station(company, address, fuel_updated_date, name_D, price_D, name_A95, price_A95)
         data = station.data_to_dict()
         posts.append(data)
@@ -53,11 +50,12 @@ def get_viada_data(soup):
     return posts
 
 
-response = download_response(url)
+response = download_response(url, params)
 if response:
     data = get_viada_data(response)
-    result_json = create_json(data, json_file_path)
-    print(result_json) #TODO kodel cia nedei script_log jei viskas gerai,saugai tik failed busenas?           
+    result_json = create_json(data, json_fuel_file_path)
+    script_log.write_log(company_name, result_json) 
+    print(f"result data of {company_name} company, {result_json}")
 else:
-    script_log.write_log(name, f"the request failed")
-    #TODO butu neblogai atprintint kas blogai,bent status_code ir kame problema
+    script_log.write_log(company_name, f"the request failed")
+    print(f"{company_name} company, response failed")
