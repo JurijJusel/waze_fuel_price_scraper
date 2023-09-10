@@ -58,7 +58,7 @@ if response:
     data = get_baltic_petroleum_data(response)
     result_json = create_json(data, json_fuel_file_path)
     script_log.write_log(company_name, result_json) 
-    print(f"result data of {company_name} company, {result_json}")               
+    print(f"result data of '{company_name}' company, {result_json}")               
 else:
     script_log.write_log(company_name, f"the request failed")
     print(f"{company_name} company, response failed")
