@@ -248,3 +248,203 @@
 2023-09-22 21:39:36, Baltic_Petroleum, The data is added to the file <data/fuel.json>
 2023-09-22 21:39:37, Neste, status code: 200
 2023-09-22 21:39:37, Neste, The data is added to the file <data/fuel.json>
+2023-09-22 22:41:10, Emsi, status code: 200
+2023-09-22 22:41:10, Emsi, The data is added to the file <data/fuel.json>
+2023-09-22 22:41:11, Viada, status code: 200
+2023-09-22 22:41:11, Viada, The data is added to the file <data/fuel.json>
+2023-09-22 22:41:11, Circle, status code: 200
+2023-09-22 22:41:11, Circle, The data is added to the file <data/fuel.json>
+2023-09-22 22:41:12, Baltic_Petroleum, status code: 200
+2023-09-22 22:41:12, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-22 22:41:12, Neste, status code: 200
+2023-09-22 22:41:12, Neste, The data is added to the file <data/fuel.json>
+2023-09-23 01:43:29, Emsi, status code: 200
+2023-09-23 01:43:29, Emsi, The data is added to the file <data/fuel.json>
+2023-09-23 01:43:30, Viada, status code: 200
+2023-09-23 01:43:30, Viada, The data is added to the file <data/fuel.json>
+2023-09-23 01:43:30, Circle, status code: 200
+2023-09-23 01:43:30, Circle, The data is added to the file <data/fuel.json>
+2023-09-23 01:43:30, Baltic_Petroleum, status code: 200
+2023-09-23 01:43:30, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-23 01:43:31, Neste, status code: 200
+2023-09-23 01:43:31, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 09:42:16, Emsi, status code: 200
+2023-09-24 09:42:16, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 09:42:16, Viada, status code: 200
+2023-09-24 09:42:16, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 09:42:17, Circle, status code: 200
+2023-09-24 09:42:17, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 09:42:18, Baltic_Petroleum, status code: 200
+2023-09-24 09:42:18, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 09:42:18, Neste, status code: 200
+2023-09-24 09:42:18, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 09:44:50, Emsi, status code: 200
+2023-09-24 09:44:50, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 09:44:51, Viada, status code: 200
+2023-09-24 09:44:51, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 09:44:51, Circle, status code: 200
+2023-09-24 09:44:51, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 09:44:51, Baltic_Petroleum, status code: 200
+2023-09-24 09:44:51, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 09:44:52, Neste, status code: 200
+2023-09-24 09:44:52, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 09:45:43, Emsi, status code: 200
+2023-09-24 09:45:43, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 09:45:44, Viada, status code: 200
+2023-09-24 09:45:44, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 09:45:44, Circle, status code: 200
+2023-09-24 09:45:44, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 09:45:44, Baltic_Petroleum, status code: 200
+2023-09-24 09:45:44, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 09:45:45, Neste, status code: 200
+2023-09-24 09:45:45, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 09:51:54, Emsi, status code: 200
+2023-09-24 09:51:54, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 09:51:54, Viada, status code: 200
+2023-09-24 09:51:54, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 09:51:54, Circle, status code: 200
+2023-09-24 09:51:54, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 09:51:55, Baltic_Petroleum, status code: 200
+2023-09-24 09:51:55, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 09:51:55, Neste, status code: 200
+2023-09-24 09:51:55, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 09:52:38, Emsi, status code: 200
+2023-09-24 09:52:38, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 09:52:39, Viada, status code: 200
+2023-09-24 09:52:39, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 09:52:39, Circle, status code: 200
+2023-09-24 09:52:39, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 09:52:40, Baltic_Petroleum, status code: 200
+2023-09-24 09:52:40, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 09:52:40, Neste, status code: 200
+2023-09-24 09:52:40, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 09:56:47, Emsi, status code: 200
+2023-09-24 09:56:47, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 09:56:47, Viada, status code: 200
+2023-09-24 09:56:47, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 09:56:47, Circle, status code: 200
+2023-09-24 09:56:48, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 09:56:48, Baltic_Petroleum, status code: 200
+2023-09-24 09:56:48, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 09:56:48, Neste, status code: 200
+2023-09-24 09:56:48, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 10:00:42, Emsi, status code: 200
+2023-09-24 10:00:42, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 10:00:42, Viada, status code: 200
+2023-09-24 10:00:42, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 10:00:43, Circle, status code: 200
+2023-09-24 10:00:43, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 10:00:43, Baltic_Petroleum, status code: 200
+2023-09-24 10:00:43, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 10:00:43, Neste, status code: 200
+2023-09-24 10:00:43, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:16, Emsi, status code: 200
+2023-09-24 10:01:16, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:16, Viada, status code: 200
+2023-09-24 10:01:16, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:17, Circle, status code: 200
+2023-09-24 10:01:17, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:17, Baltic_Petroleum, status code: 200
+2023-09-24 10:01:17, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:18, Neste, status code: 200
+2023-09-24 10:01:18, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:29, Emsi, status code: 200
+2023-09-24 10:01:30, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:30, Viada, status code: 200
+2023-09-24 10:01:30, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:30, Circle, status code: 200
+2023-09-24 10:01:30, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:30, Baltic_Petroleum, status code: 200
+2023-09-24 10:01:31, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 10:01:31, Neste, status code: 200
+2023-09-24 10:01:31, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 10:04:31, Emsi, status code: 200
+2023-09-24 10:04:31, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 10:04:31, Viada, status code: 200
+2023-09-24 10:04:31, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 10:04:31, Circle, status code: 200
+2023-09-24 10:04:31, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 10:04:32, Baltic_Petroleum, status code: 200
+2023-09-24 10:04:32, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 10:04:32, Neste, status code: 200
+2023-09-24 10:04:32, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 11:51:04, Emsi, status code: 200
+2023-09-24 11:51:04, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 11:51:04, Viada, status code: 200
+2023-09-24 11:51:04, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 11:51:05, Circle, status code: 200
+2023-09-24 11:51:05, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 11:51:05, Baltic_Petroleum, status code: 200
+2023-09-24 11:51:05, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 11:51:05, Neste, status code: 200
+2023-09-24 11:51:05, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 11:59:02, Emsi, status code: 200
+2023-09-24 11:59:02, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 11:59:02, Viada, status code: 200
+2023-09-24 11:59:02, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 11:59:03, Circle, status code: 200
+2023-09-24 11:59:03, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 11:59:03, Baltic_Petroleum, status code: 200
+2023-09-24 11:59:03, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 11:59:04, Neste, status code: 200
+2023-09-24 11:59:04, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 23:42:32, Emsi, status code: 200
+2023-09-24 23:42:32, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 23:42:33, Viada, status code: 200
+2023-09-24 23:42:33, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 23:42:33, Circle, status code: 200
+2023-09-24 23:42:33, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 23:42:33, Baltic_Petroleum, status code: 200
+2023-09-24 23:42:34, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 23:42:34, Neste, status code: 200
+2023-09-24 23:42:34, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:26, Emsi, status code: 200
+2023-09-24 23:43:26, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:26, Viada, status code: 200
+2023-09-24 23:43:26, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:27, Circle, status code: 200
+2023-09-24 23:43:27, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:27, Baltic_Petroleum, status code: 200
+2023-09-24 23:43:27, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:27, Neste, status code: 200
+2023-09-24 23:43:27, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:41, Emsi, status code: 200
+2023-09-24 23:43:41, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:42, Viada, status code: 200
+2023-09-24 23:43:42, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:42, Circle, status code: 200
+2023-09-24 23:43:42, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:42, Baltic_Petroleum, status code: 200
+2023-09-24 23:43:42, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 23:43:43, Neste, status code: 200
+2023-09-24 23:43:43, Neste, The data is added to the file <data/fuel.json>
+2023-09-24 23:44:07, Emsi, status code: 200
+2023-09-24 23:44:07, Emsi, The data is added to the file <data/fuel.json>
+2023-09-24 23:44:07, Viada, status code: 200
+2023-09-24 23:44:07, Viada, The data is added to the file <data/fuel.json>
+2023-09-24 23:44:08, Circle, status code: 200
+2023-09-24 23:44:08, Circle, The data is added to the file <data/fuel.json>
+2023-09-24 23:44:08, Baltic_Petroleum, status code: 200
+2023-09-24 23:44:08, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-24 23:44:08, Neste, status code: 200
+2023-09-24 23:44:08, Neste, The data is added to the file <data/fuel.json>
+2023-09-25 23:04:25, Emsi, status code: 200
+2023-09-25 23:04:25, Emsi, The data is added to the file <data/fuel.json>
+2023-09-25 23:04:25, Viada, status code: 200
+2023-09-25 23:04:25, Viada, The data is added to the file <data/fuel.json>
+2023-09-25 23:04:25, Circle, status code: 200
+2023-09-25 23:04:25, Circle, The data is added to the file <data/fuel.json>
+2023-09-25 23:04:26, Baltic_Petroleum, status code: 200
+2023-09-25 23:04:26, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-25 23:04:26, Neste, status code: 200
+2023-09-25 23:04:26, Neste, The data is added to the file <data/fuel.json>
+2023-09-25 23:06:55, Emsi, status code: 200
+2023-09-25 23:06:55, Emsi, The data is added to the file <data/fuel.json>
+2023-09-25 23:06:56, Viada, status code: 200
+2023-09-25 23:06:56, Viada, The data is added to the file <data/fuel.json>
+2023-09-25 23:06:56, Circle, status code: 200
+2023-09-25 23:06:56, Circle, The data is added to the file <data/fuel.json>
+2023-09-25 23:06:56, Baltic_Petroleum, status code: 200
+2023-09-25 23:06:56, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-09-25 23:06:57, Neste, status code: 200
+2023-09-25 23:06:57, Neste, The data is added to the file <data/fuel.json>
