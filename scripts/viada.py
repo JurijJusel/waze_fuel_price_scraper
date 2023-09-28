@@ -58,4 +58,4 @@ if response:
     print(f"result data of '{company_name}' company, {result_json}")
 else:
     script_log.write_log(company_name, f"the request failed")
-    print(f"{company_name} company, response failed")
+    print(f"'{company_name}' company, response failed")
