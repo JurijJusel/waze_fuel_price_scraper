@@ -22,7 +22,7 @@ class Scripts:
         self.print_scripts_ind()
         
     def print_scripts_ind(self):     
-        print(f"Number of executed files: {self.count}")
+        print(f"Number of running files: {self.count}")
         print("Executed files:", self.executed_files)
         print("Unexecuted files from scripts folder:", [file for file in self.all_script_files if file not in self.executed_files])
         print("All files in scrips folder:", self.all_script_files)
