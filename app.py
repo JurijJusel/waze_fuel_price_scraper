@@ -24,5 +24,3 @@ if __name__ == '__main__':
         run_create_tables(connection)
         # json_data_to_db(connection, json_fuel_file_path)
         print(script_log.__str__())
-  
-    

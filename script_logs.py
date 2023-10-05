@@ -1,35 +1,29 @@
 import datetime
 
-# logs_write_count = 0
+
 class Script_log:
-    # logs_write_count = 0
-        
+      
     def __init__(self):
         self.txt_file = 'logs.txt'
-        self.logs_write_count = 0
-        # self.logs_write_count += 1 
- 
-    # def init_log_count(self):
-    #     self.__class__.logs_write_count += 1   
-    
+
+    def count_write_logs(func):
+        def inner(*args, **kwargs):
+            inner.calls += 1
+            func(*args, **kwargs)
+        inner.calls = 0
+        return inner  
+  
+    @count_write_logs
     def write_log(self, name, message):
         time_stamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_status = f"{time_stamp}, {name}, {message}"
-        # self.init_log_count() 
-        # __class__.logs_write_count += 1
-        # type(self).logs_write_count += 1
-        self.logs_write_count += 1
         
         with open(self.txt_file, 'a') as file:
             file.write(log_status + "\n")
             # print(f"Logs {name}, successfully written to <{self.txt_file}>.") 
     
-    def __str__(self):
-        return f"Number of script logs: {self.logs_write_count}"
-        # return f"Number of script logs: {}"
+    def get_log_count(self):
+        return self.count
     
-# logs_write_count = 0
-   
-# s = Script_log()
-
-# print(dir(s))
+    def __str__(self):
+        return f"Number of script logs: {self.write_log.calls}"
