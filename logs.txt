@@ -1213,3 +1213,13 @@
 2023-10-05 22:48:52, Baltic_Petroleum, The data is added to the file <data/fuel.json>
 2023-10-05 22:48:52, Neste, status code: 200
 2023-10-05 22:48:52, Neste, The data is added to the file <data/fuel.json>
+2023-10-06 21:06:16, Emsi, status code: 200
+2023-10-06 21:06:16, Emsi, The data is added to the file <data/fuel.json>
+2023-10-06 21:06:16, Viada, status code: 200
+2023-10-06 21:06:16, Viada, The data is added to the file <data/fuel.json>
+2023-10-06 21:06:17, Circle, status code: 200
+2023-10-06 21:06:17, Circle, The data is added to the file <data/fuel.json>
+2023-10-06 21:06:17, Baltic_Petroleum, status code: 200
+2023-10-06 21:06:17, Baltic_Petroleum, The data is added to the file <data/fuel.json>
+2023-10-06 21:06:17, Neste, status code: 200
+2023-10-06 21:06:17, Neste, The data is added to the file <data/fuel.json>
