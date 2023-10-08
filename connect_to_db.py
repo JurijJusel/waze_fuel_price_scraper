@@ -4,17 +4,17 @@ from dotenv import load_dotenv
 
 load_dotenv(dotenv_path='.env') 
 
+db_params = {
+    'host': os.getenv('DATABASE_HOST'),
+    'port': int(os.getenv('DATABASE_PORT')),
+    'database': os.getenv('DATABASE_NAME'),
+    'user': os.getenv('DATABASE_USER'),
+    'password': os.getenv('DATABASE_PASSWORD')
+}
 
-def db_connection():
-    db_params = {
-        'host': os.getenv('DATABASE_HOST'),
-        'port': int(os.getenv('DATABASE_PORT')),
-        'database': os.getenv('DATABASE_NAME'),
-        'user': os.getenv('DATABASE_USER'),
-        'password': os.getenv('DATABASE_PASSWORD')
-    }
+def db_connection(db_params):
     try:
-        connect = psycopg2.connect(**db_params)
+        connect = psycopg2.connect(connect_timeout=10, **db_params)
         print(f"Connection to the '{db_params['database']}' database is successful.")
         return connect
     except psycopg2.OperationalError as err:
