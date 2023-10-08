@@ -20,7 +20,6 @@ class Script_log:
         
         with open(self.txt_file, 'a') as file:
             file.write(log_status + "\n")
-            # print(f"Logs {name}, successfully written to <{self.txt_file}>.") 
 
     def __str__(self):
         return f"Number of script logs: {self.write_log.calls}"
