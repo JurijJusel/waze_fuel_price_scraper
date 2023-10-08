@@ -11,21 +11,19 @@ city = 'Vilnius'
 params = {'brand': company_name, 'city': city}
 
 
-def download_response(url, params):
+def download_response(url, params): 
     try:
         req = requests.get(url, headers=headers)
         if req.ok:
-            req_status = req.status_code
-            script_log.write_log(company_name, f"status code: {req_status}")
             soup = BeautifulSoup(req.content, features="lxml")
+            script_log.write_log(company_name, f"status code: {req.status_code}")
             return soup
         else:
-            req_status = req.status_code
-            script_log.write_log(company_name, f"status code: {req_status}")
+            script_log.write_log(company_name, f"status code: {req.status_code}")
             return None
     except (Exception, ConnectionError) as e: 
         script_log.write_log(company_name, f"download_responce: {e}")
-        return None
+        print(company_name, f"download_responce error: {e}")
 
 
 def get_emsi_data(soup):
