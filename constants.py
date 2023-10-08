@@ -4,7 +4,11 @@ headers = {
 
 url = 'https://gas.didnt.work/?country=lt&brand=comapny_name&city=city'
 
+
+# Paths
 json_fuel_file_path = 'data/fuel.json'
+scripts_dir = "scripts/"
+
 
 script_run_files = ['circle', 'viada', 'neste', 'emsi', 'baltic_petroleum']  
 
