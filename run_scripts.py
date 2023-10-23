@@ -3,6 +3,8 @@ from constants import script_run_files
 import requests
 from constants import url, scripts_dir
 from script_logs import Script_log
+import asyncio
+
 
 script_log = Script_log()
 class Scripts:
@@ -10,7 +12,7 @@ class Scripts:
         self.executed_files = []
         self.all_script_files = []
 
-    def run_scripts(self):
+    async def run_scripts(self):
         self.count = 0
         self.req = requests.get(url)
         if self.req.status_code == 200:          
@@ -34,3 +36,9 @@ class Scripts:
         print("Executed files:", self.executed_files)
         print("Unexecuted files from scripts folder:", [file for file in self.all_script_files if file not in self.executed_files])
         print("All files in scrips folder:", self.all_script_files)
+    
+    def async_run_scripts(self):
+        main_loop = asyncio.get_event_loop()
+        main_task = main_loop.create_task(self.run_scripts())
+        main_loop.run_until_complete(main_task)
+        main_loop.close()
